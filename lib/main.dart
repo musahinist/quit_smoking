@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quit_smoking/view/home/home_page.dart';
 import 'package:quit_smoking/view/setup/setup_page.dart';
 
 void main() {
@@ -15,9 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
       ),
-      home: const SetupPage(),
+      home: const HomePage(),
     );
   }
 }
