@@ -19,7 +19,7 @@ class _StopWatchSectionState extends State<StopWatchSection> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    timer = Timer.periodic(Duration(minutes: 1), (time) {
+    timer = Timer.periodic(Duration(seconds: 1), (time) {
       duration = DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
       String sDuration =
           "${duration.inHours}:${duration.inMinutes.remainder(60)}:${(duration.inSeconds.remainder(60))}";
@@ -36,8 +36,8 @@ class _StopWatchSectionState extends State<StopWatchSection> {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(color: Colors.blueGrey[100]),
+    return Card(
+      color: Colors.green[100],
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
@@ -69,14 +69,14 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                     const Text('minutes')
                   ],
                 ),
-                // const SizedBox(width: 36),
-                // Column(
-                //   children: [
-                //     Text("${(duration.inSeconds.remainder(60))}",
-                //         style: Theme.of(context).textTheme.headline3),
-                //     const Text('seconds')
-                //   ],
-                // ),
+                const SizedBox(width: 36),
+                Column(
+                  children: [
+                    Text("${(duration.inSeconds.remainder(60))}",
+                        style: Theme.of(context).textTheme.headline3),
+                    const Text('seconds')
+                  ],
+                ),
               ],
             )
           ],

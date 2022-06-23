@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:quit_smoking/core/constant.dart';
 import 'package:quit_smoking/view/home/progress_section.dart';
 import 'package:quit_smoking/view/home/stopwatch_section.dart';
+
+import 'health_section.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,28 +29,6 @@ class HomePage extends StatelessWidget {
           HealthSection()
         ],
       ),
-    );
-  }
-}
-
-class HealthSection extends StatelessWidget {
-  const HealthSection({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(4),
-          child: LinearProgressIndicator(
-            minHeight: 8,
-            valueColor: AlwaysStoppedAnimation(Colors.green),
-            value: .9,
-          ),
-        )
-      ],
     );
   }
 }
