@@ -23,8 +23,31 @@ class HomePage extends StatelessWidget {
         children: const [
           StopWatchSection(),
           ProgressSection(),
+          HealthSection()
         ],
       ),
+    );
+  }
+}
+
+class HealthSection extends StatelessWidget {
+  const HealthSection({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(4),
+          child: LinearProgressIndicator(
+            minHeight: 8,
+            valueColor: AlwaysStoppedAnimation(Colors.green),
+            value: .9,
+          ),
+        )
+      ],
     );
   }
 }
