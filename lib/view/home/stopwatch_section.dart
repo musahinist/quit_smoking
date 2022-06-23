@@ -42,7 +42,7 @@ class _StopWatchSectionState extends State<StopWatchSection> {
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            const Icon(Icons.timer_outlined, size: 120),
+            const Icon(Icons.timer_outlined, size: 160),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -78,7 +78,7 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                   ],
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

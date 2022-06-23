@@ -3,6 +3,7 @@ import 'package:quit_smoking/core/constant.dart';
 import 'package:quit_smoking/view/home/progress_section.dart';
 import 'package:quit_smoking/view/home/stopwatch_section.dart';
 
+import 'daily_state_section.dart';
 import 'health_section.dart';
 
 class HomePage extends StatelessWidget {
@@ -26,7 +27,8 @@ class HomePage extends StatelessWidget {
         children: const [
           StopWatchSection(),
           ProgressSection(),
-          HealthSection()
+          HealthSection(),
+          DailyStateSection()
         ],
       ),
     );
