@@ -20,8 +20,8 @@ class ProgressSection extends StatelessWidget {
           children: [
             GridView(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4, mainAxisExtent: 148),
               children: [
                 Column(
@@ -33,10 +33,8 @@ class ProgressSection extends StatelessWidget {
                     ),
                     Text("${duration.inDays}g",
                         style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'sigrasız\ngün sayısı',
-                      textAlign: TextAlign.center,
-                    )
+                    const Text('sigrasız\ngün sayısı',
+                        textAlign: TextAlign.center)
                   ],
                 ),
                 Column(
@@ -46,12 +44,9 @@ class ProgressSection extends StatelessWidget {
                       size: 36,
                       color: Colors.green,
                     ),
-                    Text("${(duration.inHours * (20 / 24)).toStringAsFixed(0)}",
+                    Text((duration.inHours * (20 / 24)).toStringAsFixed(0),
                         style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'içilmeyen\nsigara',
-                      textAlign: TextAlign.center,
-                    )
+                    const Text('içilmeyen\nsigara', textAlign: TextAlign.center)
                   ],
                 ),
                 Column(
@@ -64,10 +59,7 @@ class ProgressSection extends StatelessWidget {
                     Text(
                         "₺${(duration.inHours * (25 / 24)).toStringAsFixed(0)}",
                         style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'kurtarılan\npara',
-                      textAlign: TextAlign.center,
-                    )
+                    const Text('kurtarılan\npara', textAlign: TextAlign.center)
                   ],
                 ),
                 Column(
@@ -79,10 +71,7 @@ class ProgressSection extends StatelessWidget {
                     ),
                     Text("${(duration.inHours / 12).toStringAsFixed(0)}s",
                         style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'geri\nkazanıldı',
-                      textAlign: TextAlign.center,
-                    )
+                    const Text('geri\nkazanıldı', textAlign: TextAlign.center)
                   ],
                 ),
                 Column(
@@ -95,10 +84,7 @@ class ProgressSection extends StatelessWidget {
                     Text(
                         "${Constant.healthStatus.indexWhere((el) => el['duration'] > duration)}/${Constant.healthStatus.length}",
                         style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'health\nimprov...',
-                      textAlign: TextAlign.center,
-                    )
+                    const Text('health\nimprov...', textAlign: TextAlign.center)
                   ],
                 ),
                 Column(
@@ -109,10 +95,8 @@ class ProgressSection extends StatelessWidget {
                       color: Colors.blue,
                     ),
                     Text("20", style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'cravings\nresisted',
-                      textAlign: TextAlign.center,
-                    )
+                    const Text('cravings\nresisted',
+                        textAlign: TextAlign.center)
                   ],
                 ),
                 Column(
@@ -123,10 +107,8 @@ class ProgressSection extends StatelessWidget {
                       color: Colors.blue,
                     ),
                     Text("₺20", style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'save up\nfor smth.',
-                      textAlign: TextAlign.center,
-                    )
+                    const Text('save up\nfor smth.',
+                        textAlign: TextAlign.center)
                   ],
                 ),
                 // sigare adedi * 5 dk
@@ -139,10 +121,8 @@ class ProgressSection extends StatelessWidget {
                     ),
                     Text("${(duration.inDays * 1.66).toStringAsFixed(0)}s",
                         style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'not spent\nsmoking',
-                      textAlign: TextAlign.center,
-                    )
+                    const Text('not spent\nsmoking',
+                        textAlign: TextAlign.center)
                   ],
                 )
               ],
