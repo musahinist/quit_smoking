@@ -94,4 +94,81 @@ class Constant {
           "10 yıl sonra, kalp krizi geçirme riski hiç içmeyenlerle aynı seviyeye iner"
     },
   ];
+
+  static const List<Map<String, dynamic>> achievements = [
+    //24/20*5=6hours
+    {
+      'duration': Duration(hours: 6),
+      "title": "",
+      "body": '5 cigarettes non-smoked',
+      "image": ''
+    },
+    // 12 hours =60 minutes lifetime
+    {
+      'duration': Duration(hours: 12),
+      "title": "",
+      "body": 'you won 60 minutes of life',
+      "image": ''
+    },
+    {
+      'duration': Duration(hours: 12),
+      "title": "",
+      "body": '10 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': Duration(hours: 18),
+      "title": "",
+      "body": '15 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': Duration(hours: 24),
+      "title": "",
+      "body": 'No smoking for 1 day',
+      "image": ''
+    },
+    {
+      'duration': Duration(hours: 24),
+      "title": "",
+      "body": '20 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': Duration(hours: 48),
+      "title": "",
+      "body": 'No smoking for 2 day',
+      "image": ''
+    },
+    {
+      'duration': Duration(hours: 60),
+      "title": "",
+      "body": '50 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 4),
+      "title": "",
+      "body": 'you saved 100TRY',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 6),
+      "title": "",
+      "body": 'you won 12 hours lifetime',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 7),
+      "title": "",
+      "body": 'No smoking for 1 week',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 10),
+      "title": "",
+      "body": 'No smoking for 10 days',
+      "image": ''
+    },
+  ];
 }
