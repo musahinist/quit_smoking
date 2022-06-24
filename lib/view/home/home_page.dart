@@ -7,6 +7,8 @@ import 'package:quit_smoking/view/home/stopwatch_section.dart';
 import 'daily_state_section.dart';
 import 'health_section.dart';
 
+Duration duration = DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 

@@ -13,8 +13,6 @@ class AchievementSection extends StatelessWidget {
   Widget build(BuildContext context) {
     Duration duration =
         DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
-    double elapsed =
-        duration.inSeconds / Constant.healthStatus[4]['duration'].inSeconds;
 
     return Card(
       child: InkWell(
@@ -39,7 +37,9 @@ class AchievementSection extends StatelessWidget {
                     (i) {
                       double elapsed = duration.inSeconds /
                           Constant.achievements[i]['duration'].inSeconds;
-                      return elapsed < 1
+                      int index = Constant.achievements
+                          .indexWhere((el) => el['duration'] > duration);
+                      return elapsed < 1 || i == index - 1
                           ? Container(
                               width: 180,
                               padding: const EdgeInsets.all(8.0),
@@ -51,27 +51,21 @@ class AchievementSection extends StatelessWidget {
                                 //  crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Align(
-                                    alignment: Alignment.topRight,
-                                    child: elapsed < 1
-                                        ? Stack(
-                                            alignment: Alignment.center,
-                                            children: [
-                                              CircularProgressIndicator(
-                                                valueColor:
-                                                    const AlwaysStoppedAnimation(
-                                                        Colors.blue),
-                                                value: elapsed,
-                                              ),
-                                              Text(
-                                                  '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}')
-                                            ],
-                                          )
-                                        : const Icon(
-                                            Icons.check_circle,
-                                            size: 48,
-                                            color: Colors.green,
+                                      alignment: Alignment.topRight,
+                                      child: Stack(
+                                        alignment: Alignment.center,
+                                        children: [
+                                          CircularProgressIndicator(
+                                            valueColor: AlwaysStoppedAnimation(
+                                                elapsed < 1
+                                                    ? Colors.blue
+                                                    : Colors.green),
+                                            value: elapsed,
                                           ),
-                                  ),
+                                          Text(
+                                              '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}')
+                                        ],
+                                      )),
                                   const Icon(Icons.health_and_safety_rounded,
                                       size: 100),
                                   Text(Constant.achievements[i]['body']),
