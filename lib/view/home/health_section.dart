@@ -50,7 +50,7 @@ class HealthSection extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Icon(Icons.task_outlined, size: 64),
-                  Text(Constant.healthStatus[4]['title'])
+                  Expanded(child: Text(Constant.healthStatus[4]['title']))
                 ],
               ),
             ],

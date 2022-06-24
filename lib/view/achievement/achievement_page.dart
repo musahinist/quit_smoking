@@ -53,7 +53,6 @@ class AchievementPage extends StatelessWidget {
                     ),
                     Icon(Icons.health_and_safety_rounded, size: 100),
                     Text(Constant.achievements[i]['body']),
-                    const SizedBox(height: 24)
                   ],
                 ),
               ),
