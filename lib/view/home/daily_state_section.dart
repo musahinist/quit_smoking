@@ -15,51 +15,41 @@ class DailyStateSection extends StatelessWidget {
     double elapsed =
         duration.inSeconds / Constant.healthStatus[4]['duration'].inSeconds;
 
-    return Card(
-      child: InkWell(
-        onTap: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => const HealthPage()));
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text("Günlük Durum",
-                  style: Theme.of(context).textTheme.headline6),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Container(
-                      height: 80,
-                      color: Colors.green,
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      height: 80,
-                      color: Colors.yellow,
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      height: 80,
-                      color: Colors.orange,
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      height: 80,
-                      color: Colors.blue,
-                    ),
-                  ),
-                ],
+    return InkWell(
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (_) => const HealthPage()));
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Container(
+                height: 80,
+                color: Colors.green,
               ),
-            ],
-          ),
+            ),
+            Expanded(
+              child: Container(
+                height: 80,
+                color: Colors.yellow,
+              ),
+            ),
+            Expanded(
+              child: Container(
+                height: 80,
+                color: Colors.orange,
+              ),
+            ),
+            Expanded(
+              child: Container(
+                height: 80,
+                color: Colors.blue,
+              ),
+            ),
+          ],
         ),
       ),
     );

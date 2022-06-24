@@ -36,13 +36,14 @@ class _StopWatchSectionState extends State<StopWatchSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.green[100],
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(width: 2), borderRadius: BorderRadius.circular(8)),
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            const Icon(Icons.timer_outlined, size: 160),
+            const Icon(Icons.timer_outlined, size: 160, color: Colors.green),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

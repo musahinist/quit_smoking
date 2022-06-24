@@ -26,13 +26,31 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        padding: EdgeInsets.all(12),
-        children: const [
-          StopWatchSection(),
-          ProgressSection(),
-          HealthSection(),
-          AchievementSection(),
-          DailyStateSection()
+        padding: const EdgeInsets.all(12),
+        physics: const BouncingScrollPhysics(),
+        children: [
+          const StopWatchSection(),
+          //
+          const SizedBox(height: 16),
+          Text("Toplam İlerleme", style: Theme.of(context).textTheme.headline6),
+          const SizedBox(height: 12),
+          const ProgressSection(),
+          //
+          const SizedBox(height: 16),
+          Text("Günlük Durum", style: Theme.of(context).textTheme.headline6),
+          const SizedBox(height: 12),
+          const DailyStateSection(),
+          //
+          const SizedBox(height: 16),
+          Text("Health Improvements",
+              style: Theme.of(context).textTheme.headline6),
+          const SizedBox(height: 12),
+          const HealthSection(),
+          //
+          const SizedBox(height: 16),
+          Text("Achievements", style: Theme.of(context).textTheme.headline6),
+          const SizedBox(height: 12),
+          const AchievementSection(),
         ],
       ),
     );

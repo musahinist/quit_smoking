@@ -160,6 +160,12 @@ class Constant {
       "image": ''
     },
     {
+      'duration': Duration(days: 3),
+      "title": "",
+      "body": 'No smoking for 3 day',
+      "image": ''
+    },
+    {
       'duration': Duration(days: 4),
       "title": "",
       "body": 'you saved 100TRY',

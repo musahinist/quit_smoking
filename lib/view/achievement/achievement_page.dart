@@ -16,8 +16,8 @@ class AchievementPage extends StatelessWidget {
         title: const Text('Achievements'),
       ),
       body: GridView(
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, childAspectRatio: 3 / 4),
         padding: const EdgeInsets.all(12),
         children: List.generate(
           Constant.achievements.length,
