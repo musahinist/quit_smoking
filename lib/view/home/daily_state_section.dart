@@ -36,28 +36,30 @@ class _DailyStateSectionState extends State<DailyStateSection> {
         children: List.generate(dailyStatus.length, (i) {
           return Expanded(
             child: InkWell(
-              onTap: () async {
+              onTap: () {
                 Show.bottomSheet(
-                    context,
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: List.generate(colors.length, (j) {
-                          return Expanded(
-                            child: InkWell(
-                              onTap: () {
-                                dailyStatus[i]['color'] = colors[j];
-                                setState(() {});
-                              },
-                              child: Container(
-                                height: 56,
-                                color: colors[j],
-                              ),
+                  context,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(
+                      colors.length,
+                      (j) {
+                        return Expanded(
+                          child: InkWell(
+                            onTap: () {
+                              dailyStatus[i]['color'] = colors[j];
+                              setState(() {});
+                            },
+                            child: Container(
+                              height: 56,
+                              color: colors[j],
                             ),
-                          );
-                        }),
-                      ),
-                    ));
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                );
               },
               child: Container(
                 height: 56,

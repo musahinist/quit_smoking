@@ -32,7 +32,7 @@ class ProgressSection extends StatelessWidget {
                       color: Colors.green,
                     ),
                     Text("${duration.inDays}g",
-                        style: Theme.of(context).textTheme.headline4),
+                        style: Theme.of(context).textTheme.headline5),
                     const Text('sigrasız\ngün sayısı',
                         textAlign: TextAlign.center)
                   ],
@@ -45,7 +45,7 @@ class ProgressSection extends StatelessWidget {
                       color: Colors.green,
                     ),
                     Text((duration.inHours * (20 / 24)).toStringAsFixed(0),
-                        style: Theme.of(context).textTheme.headline4),
+                        style: Theme.of(context).textTheme.headline5),
                     const Text('içilmeyen\nsigara', textAlign: TextAlign.center)
                   ],
                 ),
@@ -58,7 +58,7 @@ class ProgressSection extends StatelessWidget {
                     ),
                     Text(
                         "₺${(duration.inHours * (25 / 24)).toStringAsFixed(0)}",
-                        style: Theme.of(context).textTheme.headline4),
+                        style: Theme.of(context).textTheme.headline5),
                     const Text('kurtarılan\npara', textAlign: TextAlign.center)
                   ],
                 ),
@@ -70,7 +70,7 @@ class ProgressSection extends StatelessWidget {
                       color: Colors.green,
                     ),
                     Text("${(duration.inHours / 12).toStringAsFixed(0)}s",
-                        style: Theme.of(context).textTheme.headline4),
+                        style: Theme.of(context).textTheme.headline5),
                     const Text('geri\nkazanıldı', textAlign: TextAlign.center)
                   ],
                 ),
@@ -83,7 +83,7 @@ class ProgressSection extends StatelessWidget {
                     ),
                     Text(
                         "${Constant.healthStatus.indexWhere((el) => el['duration'] > duration)}/${Constant.healthStatus.length}",
-                        style: Theme.of(context).textTheme.headline4),
+                        style: Theme.of(context).textTheme.headline5),
                     const Text('health\nimprov...', textAlign: TextAlign.center)
                   ],
                 ),
@@ -94,7 +94,7 @@ class ProgressSection extends StatelessWidget {
                       size: 36,
                       color: Colors.blue,
                     ),
-                    Text("20", style: Theme.of(context).textTheme.headline4),
+                    Text("20", style: Theme.of(context).textTheme.headline5),
                     const Text('cravings\nresisted',
                         textAlign: TextAlign.center)
                   ],
@@ -106,7 +106,7 @@ class ProgressSection extends StatelessWidget {
                       size: 36,
                       color: Colors.blue,
                     ),
-                    Text("₺20", style: Theme.of(context).textTheme.headline4),
+                    Text("₺20", style: Theme.of(context).textTheme.headline5),
                     const Text('save up\nfor smth.',
                         textAlign: TextAlign.center)
                   ],
@@ -120,7 +120,7 @@ class ProgressSection extends StatelessWidget {
                       color: Colors.blue,
                     ),
                     Text("${(duration.inDays * 1.66).toStringAsFixed(0)}s",
-                        style: Theme.of(context).textTheme.headline4),
+                        style: Theme.of(context).textTheme.headline5),
                     const Text('not spent\nsmoking',
                         textAlign: TextAlign.center)
                   ],
