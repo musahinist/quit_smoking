@@ -28,7 +28,20 @@ class Constant {
     {
       'duration': Duration(days: 3),
       "title":
-          "72 saat sonra,Solunum fonksiyonları normale döner, hava yollarının gevşemesi sonucu nefes alıp verme rahatlar, solunum yolları fonksiyon görmeye başladığı için sekresyon miktarı artar, hava yolları kendi kendini temizlemeye çalışır."
+          "3 gün sonra,hava yollarının gevşemesi sonucu nefes alıp verme rahatlar."
+    },
+    {
+      'duration': Duration(days: 4),
+      "title":
+          "4 gün sonra,solunum yolları fonksiyon görmeye başladığı için sekresyon miktarı artar."
+    },
+    {
+      'duration': Duration(days: 5),
+      "title": "5 gün sonra, hava yolları kendi kendini temizlemeye çalışır."
+    },
+    {
+      'duration': Duration(days: 6),
+      "title": "6 gün sonra,Solunum fonksiyonları normale döner."
     },
     {
       'duration': Duration(days: 7),

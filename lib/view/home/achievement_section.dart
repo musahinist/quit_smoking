@@ -39,41 +39,46 @@ class AchievementSection extends StatelessWidget {
                     (i) {
                       double elapsed = duration.inSeconds /
                           Constant.achievements[i]['duration'].inSeconds;
-                      return Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            //  crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Align(
-                                alignment: Alignment.topRight,
-                                child: elapsed < 1
-                                    ? Stack(
-                                        alignment: Alignment.center,
-                                        children: [
-                                          CircularProgressIndicator(
-                                            valueColor:
-                                                const AlwaysStoppedAnimation(
-                                                    Colors.blue),
-                                            value: elapsed,
+                      return elapsed < 1
+                          ? Container(
+                              width: 180,
+                              padding: const EdgeInsets.all(8.0),
+                              margin: const EdgeInsets.all(4.0),
+                              decoration: BoxDecoration(
+                                  border: Border.all(),
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                //  crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topRight,
+                                    child: elapsed < 1
+                                        ? Stack(
+                                            alignment: Alignment.center,
+                                            children: [
+                                              CircularProgressIndicator(
+                                                valueColor:
+                                                    const AlwaysStoppedAnimation(
+                                                        Colors.blue),
+                                                value: elapsed,
+                                              ),
+                                              Text(
+                                                  '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}')
+                                            ],
+                                          )
+                                        : const Icon(
+                                            Icons.check_circle,
+                                            size: 48,
+                                            color: Colors.green,
                                           ),
-                                          Text(
-                                              '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}')
-                                        ],
-                                      )
-                                    : const Icon(
-                                        Icons.check_circle,
-                                        size: 48,
-                                        color: Colors.green,
-                                      ),
+                                  ),
+                                  const Icon(Icons.health_and_safety_rounded,
+                                      size: 100),
+                                  Text(Constant.achievements[i]['body']),
+                                ],
                               ),
-                              const Icon(Icons.health_and_safety_rounded,
-                                  size: 100),
-                              Text(Constant.achievements[i]['body']),
-                            ],
-                          ),
-                        ),
-                      );
+                            )
+                          : SizedBox();
                     },
                   ),
                 ),

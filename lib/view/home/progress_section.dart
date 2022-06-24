@@ -61,53 +61,53 @@ class ProgressSection extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    const Icon(Icons.calendar_month_rounded, size: 48),
-                    Text("1g", style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'sigrasız\ngün sayısı',
-                      textAlign: TextAlign.center,
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    const Icon(Icons.smoke_free, size: 48),
-                    Text("20", style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'cravings\nresisted',
-                      textAlign: TextAlign.center,
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    const Icon(Icons.monetization_on_outlined, size: 48),
-                    Text("₺20", style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'save up\nfor something',
-                      textAlign: TextAlign.center,
-                    )
-                  ],
-                ),
-                // sigare adedi * 5 dk
-                Column(
-                  children: [
-                    const Icon(Icons.watch_later_outlined, size: 48),
-                    Text("2s", style: Theme.of(context).textTheme.headline4),
-                    const Text(
-                      'not spent\nsmoking',
-                      textAlign: TextAlign.center,
-                    )
-                  ],
-                )
-              ],
-            )
+            // const SizedBox(height: 16),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //     Column(
+            //       children: [
+            //         const Icon(Icons.calendar_month_rounded, size: 48),
+            //         Text("1g", style: Theme.of(context).textTheme.headline4),
+            //         const Text(
+            //           'sigrasız\ngün sayısı',
+            //           textAlign: TextAlign.center,
+            //         )
+            //       ],
+            //     ),
+            //     Column(
+            //       children: [
+            //         const Icon(Icons.smoke_free, size: 48),
+            //         Text("20", style: Theme.of(context).textTheme.headline4),
+            //         const Text(
+            //           'cravings\nresisted',
+            //           textAlign: TextAlign.center,
+            //         )
+            //       ],
+            //     ),
+            //     Column(
+            //       children: [
+            //         const Icon(Icons.monetization_on_outlined, size: 48),
+            //         Text("₺20", style: Theme.of(context).textTheme.headline4),
+            //         const Text(
+            //           'save up\nfor something',
+            //           textAlign: TextAlign.center,
+            //         )
+            //       ],
+            //     ),
+            //     // sigare adedi * 5 dk
+            //     Column(
+            //       children: [
+            //         const Icon(Icons.watch_later_outlined, size: 48),
+            //         Text("2s", style: Theme.of(context).textTheme.headline4),
+            //         const Text(
+            //           'not spent\nsmoking',
+            //           textAlign: TextAlign.center,
+            //         )
+            //       ],
+            //     )
+            //   ],
+            // )
           ],
         ),
       ),

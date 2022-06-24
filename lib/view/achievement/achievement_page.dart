@@ -38,20 +38,20 @@ class AchievementPage extends StatelessWidget {
                               children: [
                                 CircularProgressIndicator(
                                   valueColor:
-                                      AlwaysStoppedAnimation(Colors.blue),
+                                      const AlwaysStoppedAnimation(Colors.blue),
                                   value: elapsed,
                                 ),
                                 Text(
                                     '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}')
                               ],
                             )
-                          : Icon(
+                          : const Icon(
                               Icons.check_circle,
                               size: 48,
                               color: Colors.green,
                             ),
                     ),
-                    Icon(Icons.health_and_safety_rounded, size: 100),
+                    const Icon(Icons.health_and_safety_rounded, size: 100),
                     Text(Constant.achievements[i]['body']),
                   ],
                 ),
