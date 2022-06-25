@@ -94,7 +94,7 @@ class ProgressSection extends StatelessWidget {
                       size: 36,
                       color: Colors.blue,
                     ),
-                    Text("20", style: Theme.of(context).textTheme.headline5),
+                    Text("2", style: Theme.of(context).textTheme.headline5),
                     const Text('cravings\nresisted',
                         textAlign: TextAlign.center)
                   ],
@@ -106,7 +106,9 @@ class ProgressSection extends StatelessWidget {
                       size: 36,
                       color: Colors.blue,
                     ),
-                    Text("₺20", style: Theme.of(context).textTheme.headline5),
+                    Text(
+                        "₺${(duration.inHours * (25 / 24)).toStringAsFixed(0)}",
+                        style: Theme.of(context).textTheme.headline5),
                     const Text('save up\nfor smth.',
                         textAlign: TextAlign.center)
                   ],
