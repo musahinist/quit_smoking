@@ -41,10 +41,11 @@ class _StopWatchSectionState extends State<StopWatchSection> {
           children: [
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Text(
-                '4. GÜN',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                '${duration.inDays + 1}. GÜN',
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz))
+              IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz))
             ]),
             SizedBox(
               width: 200,
@@ -60,13 +61,11 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                     '${(duration.inMinutes * 100 / (7 * 24 * 60)).toStringAsFixed(1)} %',
                     textScaleFactor: 3,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(24.0),
+                  const Padding(
+                    padding: EdgeInsets.all(24.0),
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: Text(
-                        '7 GÜN',
-                      ),
+                      child: Text('7 GÜN'),
                     ),
                   )
                   // const Icon(Icons.timer_outlined,
@@ -125,22 +124,20 @@ class SemiCircleChart extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
-      ..strokeWidth = 20
-      ..color = Colors.grey.shade300
+      ..strokeWidth = 24
+      ..color = Colors.black
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
-    canvas.drawArc(
-        Rect.fromCenter(
-          center: Offset.zero,
-          width: radius * 2,
-          height: radius * 2,
-        ),
-        0.8 * math.pi,
-        (1.4 * math.pi),
-        false,
-        paint);
+    drawArc(canvas, paint, 1);
+    paint.color = Colors.white;
+    paint.strokeWidth = 20;
+    drawArc(canvas, paint, 1);
     paint.color = color;
+    drawArc(canvas, paint, percent);
+  }
+
+  drawArc(Canvas canvas, Paint paint, double perc) {
     canvas.drawArc(
         Rect.fromCenter(
           center: Offset.zero,
@@ -148,7 +145,7 @@ class SemiCircleChart extends CustomPainter {
           height: radius * 2,
         ),
         0.8 * math.pi,
-        (percent * 1.4 * math.pi),
+        (perc * 1.4 * math.pi),
         false,
         paint);
   }

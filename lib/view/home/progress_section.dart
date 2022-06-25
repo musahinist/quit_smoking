@@ -22,7 +22,7 @@ class ProgressSection extends StatelessWidget {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4, mainAxisExtent: 148),
+                  crossAxisCount: 4, mainAxisExtent: 120),
               children: [
                 Column(
                   children: [

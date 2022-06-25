@@ -4,6 +4,7 @@ import 'package:quit_smoking/view/home/achievement_section.dart';
 import 'package:quit_smoking/view/home/progress_section.dart';
 import 'package:quit_smoking/view/home/stopwatch_section.dart';
 
+import '../profile/profile.page.dart';
 import 'daily_state_section.dart';
 import 'health_section.dart';
 
@@ -20,9 +21,24 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         title: const Text("Quit Smoking"),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.face))
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const ProfilePage()));
+              },
+              icon: const Icon(Icons.share)),
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const ProfilePage()));
+              },
+              icon: const Icon(Icons.settings)),
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const ProfilePage()));
+              },
+              icon: const Icon(Icons.face))
         ],
       ),
       body: ListView(
