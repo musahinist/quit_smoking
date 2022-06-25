@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
           const StopWatchSection(),
           //
           const SizedBox(height: 24),
-          Text("Günlük Durum", style: Theme.of(context).textTheme.headline6),
+          Text("Daily Mode", style: Theme.of(context).textTheme.headline6),
           const SizedBox(height: 12),
           const DailyStateSection(),
           //
