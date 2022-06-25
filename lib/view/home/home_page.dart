@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (_) => const ProfilePage()));
               },
-              icon: const Icon(Icons.settings)),
+              icon: const Icon(Icons.more_outlined)),
           IconButton(
               onPressed: () {
                 Navigator.of(context).push(
@@ -42,28 +42,28 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         physics: const BouncingScrollPhysics(),
         children: [
           const StopWatchSection(),
           //
-          const SizedBox(height: 16),
+          const SizedBox(height: 24),
           Text("Günlük Durum", style: Theme.of(context).textTheme.headline6),
           const SizedBox(height: 12),
           const DailyStateSection(),
           //
-          const SizedBox(height: 16),
+          const SizedBox(height: 24),
           Text("Toplam İlerleme", style: Theme.of(context).textTheme.headline6),
           const SizedBox(height: 12),
           const ProgressSection(),
 
           //
-          const SizedBox(height: 16),
+          const SizedBox(height: 24),
           Text("Health Improvements",
               style: Theme.of(context).textTheme.headline6),
           const SizedBox(height: 12),
           const HealthSection(),
-          const SizedBox(height: 16),
+          const SizedBox(height: 24),
           Text("Achievements", style: Theme.of(context).textTheme.headline6),
           const SizedBox(height: 12),
           const AchievementSection(),

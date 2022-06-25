@@ -36,7 +36,7 @@ class _StopWatchSectionState extends State<StopWatchSection> {
       decoration: BoxDecoration(
           border: Border.all(width: 2), borderRadius: BorderRadius.circular(8)),
       child: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
         child: Column(
           children: [
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -57,9 +57,15 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                     painter: SemiCircleChart(
                         duration.inMinutes / (7 * 24 * 60), 100, Colors.blue),
                   ),
-                  Text(
-                    '${(duration.inMinutes * 100 / (7 * 24 * 60)).toStringAsFixed(1)} %',
-                    textScaleFactor: 3,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '${(duration.inMinutes * 100 / (7 * 24 * 60)).toStringAsFixed(1)}',
+                        textScaleFactor: 3,
+                      ),
+                      const Text('%'),
+                    ],
                   ),
                   const Padding(
                     padding: EdgeInsets.all(24.0),
