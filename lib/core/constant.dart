@@ -1,9 +1,33 @@
 class Constant {
   static List<Map<String, dynamic>> gifts = [
-    {'title': 'snakcs', 'note': '', 'price': 120},
-    {'title': 'ios dev account', 'note': '', 'price': 1100},
-    {'title': 'trainers', 'note': '', 'price': 800},
-    {'title': 'snakcs', 'note': '', 'price': 120},
+    {
+      'title': 'snakcs',
+      'note': '',
+      'price': 120,
+      'link': '',
+      'purchased': false
+    },
+    {
+      'title': 'ios dev account',
+      'note': '',
+      'price': 1100,
+      'link': '',
+      'purchased': false
+    },
+    {
+      'title': 'trainers',
+      'note': '',
+      'price': 800,
+      'link': '',
+      'purchased': false
+    },
+    {
+      'title': 'snakcs',
+      'note': '',
+      'price': 120,
+      'link': '',
+      'purchased': false
+    },
   ];
   static const List<Map<String, dynamic>> healthStatus = [
     {
