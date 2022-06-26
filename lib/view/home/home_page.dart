@@ -5,7 +5,7 @@ import 'package:quit_smoking/view/home/progress_section.dart';
 import 'package:quit_smoking/view/home/stopwatch_section.dart';
 
 import '../profile/profile.page.dart';
-import 'daily_state_section.dart';
+import 'daily_mood_section.dart';
 import 'health_section.dart';
 
 Duration duration = DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
@@ -42,15 +42,15 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         physics: const BouncingScrollPhysics(),
         children: [
           const StopWatchSection(),
           //
           const SizedBox(height: 24),
-          Text("Daily Mode", style: Theme.of(context).textTheme.headline6),
+          Text("Daily Mood", style: Theme.of(context).textTheme.headline6),
           const SizedBox(height: 12),
-          const DailyStateSection(),
+          const DailyMoodSection(),
           //
           const SizedBox(height: 24),
           Text("Toplam İlerleme", style: Theme.of(context).textTheme.headline6),

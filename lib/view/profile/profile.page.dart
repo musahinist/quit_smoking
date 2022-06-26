@@ -20,11 +20,11 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text('Profile'),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.edit))],
+        title: const Text('Profile'),
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.edit))],
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         children: [
           Row(
             children: [
@@ -69,7 +69,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                 ),
               ),
-              SizedBox(width: 24),
+              const SizedBox(width: 24),
               Expanded(
                 child: Container(
                   height: 120,
@@ -78,17 +78,17 @@ class _ProfilePageState extends State<ProfilePage> {
                       borderRadius: BorderRadius.circular(8)),
                   child: Column(
                     children: [
-                      Text('mshn',
+                      const Text('mshn',
                           style: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.bold)),
-                      Text('Bırakma tarihi: 21 Haziram 2022')
+                      const Text('Bırakma tarihi: 21 Haziram 2022')
                     ],
                   ),
                 ),
               )
             ],
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           Container(
             decoration: BoxDecoration(
                 border: Border.all(width: 2),
@@ -104,7 +104,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       Column(
                         children: [
                           Text("${duration.inDays}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 36, fontWeight: FontWeight.bold)),
                           const Text('days')
                         ],
@@ -112,7 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       Column(
                         children: [
                           Text("${duration.inHours.remainder(24)}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 36, fontWeight: FontWeight.bold)),
                           const Text('hours')
                         ],
@@ -120,7 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       Column(
                         children: [
                           Text("${duration.inMinutes.remainder(60)}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 36, fontWeight: FontWeight.bold)),
                           const Text('minutes')
                         ],
@@ -173,8 +173,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 12),
-                  ElevatedButton(onPressed: () {}, child: Text('Paylaş'))
+                  const SizedBox(height: 12),
+                  ElevatedButton(onPressed: () {}, child: const Text('Paylaş'))
                 ],
               ),
             ),

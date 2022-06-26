@@ -31,10 +31,9 @@ class ProgressSection extends StatelessWidget {
                       size: 36,
                       color: Colors.green,
                     ),
-                    Text("${duration.inDays}g",
+                    Text("${duration.inDays}",
                         style: Theme.of(context).textTheme.headline5),
-                    const Text('sigrasız\ngün sayısı',
-                        textAlign: TextAlign.center)
+                    const Text('sigarasız\ngün', textAlign: TextAlign.center)
                   ],
                 ),
                 Column(
@@ -57,7 +56,7 @@ class ProgressSection extends StatelessWidget {
                       color: Colors.green,
                     ),
                     Text(
-                        "₺${(duration.inHours * (25 / 24)).toStringAsFixed(0)}",
+                        "₺${(duration.inHours * (30 / 24)).toStringAsFixed(0)}",
                         style: Theme.of(context).textTheme.headline5),
                     const Text('kurtarılan\npara', textAlign: TextAlign.center)
                   ],
@@ -107,7 +106,7 @@ class ProgressSection extends StatelessWidget {
                       color: Colors.blue,
                     ),
                     Text(
-                        "₺${(duration.inHours * (25 / 24)).toStringAsFixed(0)}",
+                        "₺${(duration.inHours * (30 / 24)).toStringAsFixed(0)}",
                         style: Theme.of(context).textTheme.headline5),
                     const Text('save up\nfor smth.',
                         textAlign: TextAlign.center)
