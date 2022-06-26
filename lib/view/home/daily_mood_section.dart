@@ -124,7 +124,7 @@ class _DailyMoodSectionState extends State<DailyMoodSection> {
 
                       TextFormField(
                         maxLines: 5,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                             hintText: 'Comments',
                             border: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -132,7 +132,9 @@ class _DailyMoodSectionState extends State<DailyMoodSection> {
                             )),
                       ),
                       const SizedBox(height: 16),
-                      ElevatedButton(onPressed: () {}, child: Text('Save'))
+                      ElevatedButton(
+                          onPressed: () {}, child: const Text('Save')),
+                      const SizedBox(height: 16),
                     ],
                   ),
                 );
