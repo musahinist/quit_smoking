@@ -212,6 +212,30 @@ class Constant {
       "image": ''
     },
     {
+      'duration': Duration(hours: 100),
+      "title": "",
+      "body": 'No smoking for 100 hours',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 5),
+      "title": "",
+      "body": 'No smoking for 5 day',
+      "image": ''
+    },
+    {
+      'duration': Duration(hours: 120),
+      "title": "",
+      "body": '100 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 6),
+      "title": "",
+      "body": 'No smoking for 6 day',
+      "image": ''
+    },
+    {
       'duration': Duration(days: 6),
       "title": "",
       "body": 'you won 12 hours lifetime',
@@ -227,6 +251,90 @@ class Constant {
       'duration': Duration(days: 10),
       "title": "",
       "body": 'No smoking for 10 days',
+      "image": ''
+    },
+    {
+      'duration': Duration(hours: 250),
+      "title": "",
+      "body": 'No smoking for 250 hours',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 12),
+      "title": "",
+      "body": 'you won 1 day lifetime',
+      "image": ''
+    },
+    {
+      'duration': Duration(hours: 300),
+      "title": "",
+      "body": '250 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 14),
+      "title": "",
+      "body": 'No smoking for 2 weeks',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 21),
+      "title": "",
+      "body": 'No smoking for 3 weeks',
+      "image": ''
+    },
+    {
+      'duration': Duration(hours: 600),
+      "title": "",
+      "body": '500 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 30),
+      "title": "",
+      "body": 'No smoking for 1 months',
+      "image": ''
+    },
+    {
+      'duration': Duration(hours: 1200),
+      "title": "",
+      "body": '1000 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 50),
+      "title": "",
+      "body": 'No smoking for 50 days',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 100),
+      "title": "",
+      "body": 'No smoking for 100 days',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 120),
+      "title": "",
+      "body": 'No smoking for 4 months',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 150),
+      "title": "",
+      "body": 'No smoking for 150 days',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 180),
+      "title": "",
+      "body": 'No smoking for 6 months',
+      "image": ''
+    },
+    {
+      'duration': Duration(days: 200),
+      "title": "",
+      "body": 'No smoking for 200 days',
       "image": ''
     },
   ];

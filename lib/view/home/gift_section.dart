@@ -17,7 +17,7 @@ class GiftSection extends StatelessWidget {
             .push(MaterialPageRoute(builder: (_) => const GiftPage()));
       },
       child: SizedBox(
-        height: 148,
+        height: 140,
         child: ListView(
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),
@@ -28,7 +28,7 @@ class GiftSection extends StatelessWidget {
                   duration.inHours * (30 / 24) / Constant.gifts[i]['price'];
               Constant.gifts.sort((a, b) => a['price'].compareTo(b['price']));
               return Container(
-                width: 150,
+                width: 156,
                 padding: const EdgeInsets.all(12.0),
                 margin: const EdgeInsets.only(right: 8.0),
                 decoration: BoxDecoration(

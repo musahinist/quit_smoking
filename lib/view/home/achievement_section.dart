@@ -20,7 +20,7 @@ class AchievementSection extends StatelessWidget {
             .push(MaterialPageRoute(builder: (_) => const AchievementPage()));
       },
       child: SizedBox(
-        height: 200,
+        height: 176,
         child: ListView(
           scrollDirection: Axis.horizontal,
           physics: BouncingScrollPhysics(),
@@ -33,7 +33,7 @@ class AchievementSection extends StatelessWidget {
                   .indexWhere((el) => el['duration'] > duration);
               return elapsed < 1 || i == index - 1
                   ? Container(
-                      width: 150,
+                      width: 156,
                       padding: const EdgeInsets.all(8.0),
                       margin: const EdgeInsets.only(right: 8.0),
                       decoration: BoxDecoration(

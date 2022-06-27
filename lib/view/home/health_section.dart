@@ -18,7 +18,7 @@ class HealthSection extends StatelessWidget {
             .push(MaterialPageRoute(builder: (_) => const HealthPage()));
       },
       child: SizedBox(
-        height: 180,
+        height: 176,
         child: ListView(
           scrollDirection: Axis.horizontal,
           physics: BouncingScrollPhysics(),
@@ -31,7 +31,7 @@ class HealthSection extends StatelessWidget {
                   .indexWhere((el) => el['duration'] > duration);
               return elapsed < 1 || i == index - 1
                   ? Container(
-                      width: 150,
+                      width: 156,
                       padding: const EdgeInsets.all(8.0),
                       margin: const EdgeInsets.only(right: 8.0),
                       decoration: BoxDecoration(
