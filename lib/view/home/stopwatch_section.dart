@@ -39,14 +39,17 @@ class _StopWatchSectionState extends State<StopWatchSection> {
         padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
         child: Column(
           children: [
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text(
-                '${duration.inDays + 1}. GÜN',
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz)),
-              PopupMenuButton<Duration>(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '${duration.inDays + 1}. GÜN',
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                PopupMenuButton<Duration>(
+                  icon: const Icon(Icons.more_horiz),
+
                   // Callback that sets the selected popup menu item.
                   onSelected: (Duration duration) {
                     setState(() {
@@ -55,76 +58,78 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                   },
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<Duration>>[
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 1),
-                          child: Text('1 Gün'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 2),
-                          child: Text('2 Gün'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 3),
-                          child: Text('3 Gün'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 5),
-                          child: Text('5 Gün'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 7),
-                          child: Text('7 Gün'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 10),
-                          child: Text('10 Gün'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 14),
-                          child: Text('2 Hafta'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 21),
-                          child: Text('3 Hafta'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 30),
-                          child: Text('1 Ay'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 60),
-                          child: Text('2 Ay'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 100),
-                          child: Text('100 Gün'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 120),
-                          child: Text('4 Ay'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 180),
-                          child: Text('6 Ay'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 270),
-                          child: Text('9 Ay'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 365),
-                          child: Text('1 Yıl'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 730),
-                          child: Text('2 Yıl'),
-                        ),
-                        const PopupMenuItem<Duration>(
-                          value: Duration(days: 1825),
-                          child: Text('5 Yıl'),
-                        ),
-                      ])
-            ]),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 1),
+                      child: Text('1 Gün'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 2),
+                      child: Text('2 Gün'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 3),
+                      child: Text('3 Gün'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 5),
+                      child: Text('5 Gün'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 7),
+                      child: Text('7 Gün'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 10),
+                      child: Text('10 Gün'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 14),
+                      child: Text('2 Hafta'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 21),
+                      child: Text('3 Hafta'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 30),
+                      child: Text('1 Ay'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 60),
+                      child: Text('2 Ay'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 100),
+                      child: Text('100 Gün'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 120),
+                      child: Text('4 Ay'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 180),
+                      child: Text('6 Ay'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 270),
+                      child: Text('9 Ay'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 365),
+                      child: Text('1 Yıl'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 730),
+                      child: Text('2 Yıl'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 1825),
+                      child: Text('5 Yıl'),
+                    ),
+                  ],
+                )
+              ],
+            ),
             SizedBox(
               width: 160,
               height: 160,
@@ -142,7 +147,7 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '${(duration.inMinutes * 100 / (selectedDuration.inDays * 24 * 60)).toStringAsFixed(1)}',
+                        '${(duration.inMinutes * 100 / (selectedDuration.inDays * 24 * 60)).clamp(0, 100).toStringAsFixed(1)}',
                         textScaleFactor: 3,
                       ),
                       const Text('%'),
@@ -221,7 +226,7 @@ class SemiCircleChart extends CustomPainter {
     paint.strokeWidth = 20;
     drawArc(canvas, paint, 1);
     paint.color = color;
-    drawArc(canvas, paint, percent);
+    drawArc(canvas, paint, percent.clamp(0, 1));
   }
 
   drawArc(Canvas canvas, Paint paint, double perc) {
