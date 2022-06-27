@@ -18,7 +18,7 @@ class HealthSection extends StatelessWidget {
             .push(MaterialPageRoute(builder: (_) => const HealthPage()));
       },
       child: SizedBox(
-        height: 140,
+        height: 180,
         child: ListView(
           scrollDirection: Axis.horizontal,
           physics: BouncingScrollPhysics(),
@@ -31,30 +31,33 @@ class HealthSection extends StatelessWidget {
                   .indexWhere((el) => el['duration'] > duration);
               return elapsed < 1 || i == index - 1
                   ? Container(
-                      width: 200,
+                      width: 150,
                       padding: const EdgeInsets.all(8.0),
                       margin: const EdgeInsets.only(right: 8.0),
                       decoration: BoxDecoration(
                           border: Border.all(width: 2),
                           borderRadius: BorderRadius.circular(8)),
-                      child: Row(
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation(
-                                    elapsed < 1 ? Colors.blue : Colors.green),
-                                value: elapsed,
-                              ),
-                              Text(
-                                  '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}')
-                            ],
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation(
+                                      elapsed < 1 ? Colors.blue : Colors.green),
+                                  value: elapsed,
+                                ),
+                                Text(
+                                    '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}')
+                              ],
+                            ),
                           ),
                           const SizedBox(width: 12),
-                          Expanded(
-                              child: Text(Constant.healthStatus[i]['title'])),
+                          Text(Constant.healthStatus[i]['title']),
                         ],
                       ),
                     )

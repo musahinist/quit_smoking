@@ -33,13 +33,14 @@ class AchievementSection extends StatelessWidget {
                   .indexWhere((el) => el['duration'] > duration);
               return elapsed < 1 || i == index - 1
                   ? Container(
-                      width: 148,
+                      width: 150,
                       padding: const EdgeInsets.all(8.0),
                       margin: const EdgeInsets.only(right: 8.0),
                       decoration: BoxDecoration(
                           border: Border.all(width: 2),
                           borderRadius: BorderRadius.circular(8)),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         //  crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Align(
@@ -58,8 +59,8 @@ class AchievementSection extends StatelessWidget {
                                       '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}')
                                 ],
                               )),
-                          const Icon(Icons.health_and_safety_rounded,
-                              size: 100),
+                          const Icon(Icons.health_and_safety_outlined,
+                              size: 80),
                           Text(Constant.achievements[i]['body']),
                         ],
                       ),

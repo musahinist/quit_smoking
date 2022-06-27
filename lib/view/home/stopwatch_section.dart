@@ -48,14 +48,14 @@ class _StopWatchSectionState extends State<StopWatchSection> {
               IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz))
             ]),
             SizedBox(
-              width: 200,
-              height: 200,
+              width: 160,
+              height: 160,
               child: Stack(
                 alignment: Alignment.center,
                 children: [
                   CustomPaint(
                     painter: SemiCircleChart(
-                        duration.inMinutes / (7 * 24 * 60), 100, Colors.blue),
+                        duration.inMinutes / (7 * 24 * 60), 80, Colors.blue),
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,

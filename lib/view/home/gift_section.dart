@@ -28,7 +28,7 @@ class GiftSection extends StatelessWidget {
                   duration.inHours * (30 / 24) / Constant.gifts[i]['price'];
               Constant.gifts.sort((a, b) => a['price'].compareTo(b['price']));
               return Container(
-                width: 148,
+                width: 150,
                 padding: const EdgeInsets.all(12.0),
                 margin: const EdgeInsets.only(right: 8.0),
                 decoration: BoxDecoration(
@@ -41,8 +41,8 @@ class GiftSection extends StatelessWidget {
                       alignment: Alignment.center,
                       children: [
                         SizedBox(
-                          width: 80,
-                          height: 80,
+                          width: 64,
+                          height: 64,
                           child: CircularProgressIndicator(
                             strokeWidth: 8,
                             backgroundColor: Colors.blueGrey.shade50,
@@ -53,6 +53,10 @@ class GiftSection extends StatelessWidget {
                         Text(
                             '${priceRatio > 1 ? 100 : (priceRatio * 100).toStringAsFixed(0)}')
                       ],
+                    ),
+                    Text(
+                      '₺${Constant.gifts[i]['price']}',
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     Text(Constant.gifts[i]['title']),
                   ],
