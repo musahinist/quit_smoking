@@ -14,7 +14,7 @@ class StopWatchSection extends StatefulWidget {
 class _StopWatchSectionState extends State<StopWatchSection> {
   late Timer timer;
   Duration duration = DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
-
+  Duration selectedDuration = const Duration(days: 10);
   @override
   void initState() {
     super.initState();
@@ -45,7 +45,85 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                 style:
                     const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz))
+              IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz)),
+              PopupMenuButton<Duration>(
+                  // Callback that sets the selected popup menu item.
+                  onSelected: (Duration duration) {
+                    setState(() {
+                      selectedDuration = duration;
+                    });
+                  },
+                  itemBuilder: (BuildContext context) =>
+                      <PopupMenuEntry<Duration>>[
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 1),
+                          child: Text('1 Gün'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 2),
+                          child: Text('2 Gün'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 3),
+                          child: Text('3 Gün'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 5),
+                          child: Text('5 Gün'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 7),
+                          child: Text('7 Gün'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 10),
+                          child: Text('10 Gün'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 14),
+                          child: Text('2 Hafta'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 21),
+                          child: Text('3 Hafta'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 30),
+                          child: Text('1 Ay'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 60),
+                          child: Text('2 Ay'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 100),
+                          child: Text('100 Gün'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 120),
+                          child: Text('4 Ay'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 180),
+                          child: Text('6 Ay'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 270),
+                          child: Text('9 Ay'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 365),
+                          child: Text('1 Yıl'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 730),
+                          child: Text('2 Yıl'),
+                        ),
+                        const PopupMenuItem<Duration>(
+                          value: Duration(days: 1825),
+                          child: Text('5 Yıl'),
+                        ),
+                      ])
             ]),
             SizedBox(
               width: 160,
@@ -55,23 +133,26 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                 children: [
                   CustomPaint(
                     painter: SemiCircleChart(
-                        duration.inMinutes / (7 * 24 * 60), 80, Colors.blue),
+                        duration.inMinutes /
+                            (selectedDuration.inDays * 24 * 60),
+                        80,
+                        Colors.blue),
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '${(duration.inMinutes * 100 / (7 * 24 * 60)).toStringAsFixed(1)}',
+                        '${(duration.inMinutes * 100 / (selectedDuration.inDays * 24 * 60)).toStringAsFixed(1)}',
                         textScaleFactor: 3,
                       ),
                       const Text('%'),
                     ],
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.all(24.0),
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: Text('7 GÜN'),
+                      child: Text('${selectedDuration.inDays} GÜN'),
                     ),
                   )
                   // const Icon(Icons.timer_outlined,
