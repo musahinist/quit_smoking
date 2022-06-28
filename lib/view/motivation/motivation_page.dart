@@ -11,6 +11,10 @@ class MotivationPage extends StatelessWidget {
         elevation: 0,
         title: const Text('Motivation'),
       ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [],
+      ),
     );
   }
 }

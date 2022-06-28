@@ -55,25 +55,26 @@ class HomePage extends StatelessWidget {
           const DailyMoodSection(),
           //
           const SizedBox(height: 24),
-          Text("Motivation", style: Theme.of(context).textTheme.headline6),
-          const SizedBox(height: 12),
-          const MotivationSection(),
-          //
-          const SizedBox(height: 24),
           Text("Toplam İlerleme", style: Theme.of(context).textTheme.headline6),
           const SizedBox(height: 12),
           const ProgressSection(),
-
+          //
+          const SizedBox(height: 24),
+          Text("Motivation", style: Theme.of(context).textTheme.headline6),
+          const SizedBox(height: 12),
+          const MotivationSection(),
           //
           const SizedBox(height: 24),
           Text("Health Improvements",
               style: Theme.of(context).textTheme.headline6),
           const SizedBox(height: 12),
           const HealthSection(),
+          //
           const SizedBox(height: 24),
           Text("Achievements", style: Theme.of(context).textTheme.headline6),
           const SizedBox(height: 12),
           const AchievementSection(),
+          //
           const SizedBox(height: 24),
           Text("Pamper Yourself", style: Theme.of(context).textTheme.headline6),
           const SizedBox(height: 12),

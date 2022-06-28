@@ -1,4 +1,11 @@
 class Constant {
+  static const List<String> reasonList = [
+    'Daha sağlıklı olmak için',
+    'Bağımlılıklarından kurtulmak insanı daha güçlü yapar.',
+    'Günde 100 dk sigara içmek için israf oluyor. Kendime daha fazla zaman ayırmak için.',
+    'Sigara uyku kalitesini düşürüyor. Daha kaliteli bir uyku uyumak için.',
+    'Aylık 900 TL sigara masrafı var. Biriktirdiğim parayı faklı ihtiyaçlarıma harcamak için'
+  ];
   static List<Map<String, dynamic>> gifts = [
     {
       'title': 'snakcs',
