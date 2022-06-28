@@ -166,7 +166,7 @@ class _StopWatchSectionState extends State<StopWatchSection> {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Column(
                   children: [
@@ -175,7 +175,6 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                     const Text('days')
                   ],
                 ),
-                const SizedBox(width: 36),
                 Column(
                   children: [
                     Text("${duration.inHours.remainder(24)}",
@@ -183,7 +182,6 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                     const Text('hours')
                   ],
                 ),
-                const SizedBox(width: 36),
                 Column(
                   children: [
                     Text("${duration.inMinutes.remainder(60)}",
@@ -191,7 +189,6 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                     const Text('minutes')
                   ],
                 ),
-                const SizedBox(width: 36),
                 Column(
                   children: [
                     Text("${(duration.inSeconds.remainder(60))}",

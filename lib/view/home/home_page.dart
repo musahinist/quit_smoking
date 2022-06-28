@@ -8,6 +8,7 @@ import '../profile/profile.page.dart';
 import 'daily_mood_section.dart';
 import 'gift_section.dart';
 import 'health_section.dart';
+import 'motivation_section.dart';
 
 Duration duration = DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
 
@@ -52,6 +53,11 @@ class HomePage extends StatelessWidget {
           Text("Daily Mood", style: Theme.of(context).textTheme.headline6),
           const SizedBox(height: 12),
           const DailyMoodSection(),
+          //
+          const SizedBox(height: 24),
+          Text("Motivation", style: Theme.of(context).textTheme.headline6),
+          const SizedBox(height: 12),
+          const MotivationSection(),
           //
           const SizedBox(height: 24),
           Text("Toplam İlerleme", style: Theme.of(context).textTheme.headline6),
