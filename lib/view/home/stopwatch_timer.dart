@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quit_smoking/model/stopwatch.dart';
 
-final timerProviderSec = StateNotifierProvider<StopWatch, Duration>((ref) {
-  return StopWatch(const Duration(seconds: 1));
-});
-
 class StopWatchTimer extends ConsumerWidget {
   const StopWatchTimer({Key? key}) : super(key: key);
 

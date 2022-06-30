@@ -5,6 +5,7 @@ import 'package:quit_smoking/view/home/arc_chart_section.dart';
 import 'package:quit_smoking/view/home/progress_section.dart';
 import 'package:quit_smoking/view/home/stopwatch_timer.dart';
 
+import '../more/more_page.dart';
 import '../profile/profile.page.dart';
 import 'daily_mood_section.dart';
 import 'gift_section.dart';
@@ -32,8 +33,8 @@ class HomePage extends StatelessWidget {
               icon: const Icon(Icons.share)),
           IconButton(
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const ProfilePage()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (_) => const MorePage()));
               },
               icon: const Icon(Icons.more_outlined)),
           IconButton(

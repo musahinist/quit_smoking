@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quit_smoking/core/widget/ui/form/date_form_field.dart';
+import 'package:quit_smoking/model/user/mock_user.dart';
 
 class SetupPage extends StatelessWidget {
   const SetupPage({Key? key}) : super(key: key);
@@ -18,29 +19,42 @@ class SetupPage extends StatelessWidget {
           DateFormField(
               label: 'Sigrayı bırakma tarihi',
               onChanged: (value) {
-                print(value);
+                mockUser = mockUser.copyWith(quitDate: value.toIso8601String());
               }),
           TextFormField(
             initialValue: "20",
-            decoration: InputDecoration(label: Text('Siagra içilen yıl')),
+            decoration: const InputDecoration(
+              label: Text('Siagra içilen yıl'),
+            ),
           ),
           TextFormField(
             initialValue: "20",
-            decoration: InputDecoration(label: Text('Günlük içilen sigara')),
+            decoration: const InputDecoration(
+              label: Text('Günlük içilen sigara'),
+            ),
+          ),
+          TextFormField(
+            initialValue: "20",
+            decoration: const InputDecoration(
+              label: Text('1 pakette kaç sigara var'),
+            ),
           ),
           TextFormField(
             initialValue: "25",
-            decoration:
-                InputDecoration(label: Text('Günlük içilen sigara fiyatı')),
+            decoration: const InputDecoration(
+              label: Text('Günlük içilen sigara fiyatı'),
+            ),
           ),
           TextFormField(
             initialValue: "TRY",
-            decoration: InputDecoration(label: Text('Para Birimi')),
+            decoration: const InputDecoration(
+              label: Text('Para Birimi'),
+            ),
           )
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.check),
+        child: const Icon(Icons.check),
         onPressed: () {},
       ),
     );

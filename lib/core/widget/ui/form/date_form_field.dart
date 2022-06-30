@@ -12,9 +12,9 @@ class DateFormField extends StatefulWidget {
     required this.onChanged,
   }) : super(key: key);
 
-  final String? initialValue;
+  final DateTime? initialValue;
   final String label;
-  final ValueSetter<String> onChanged;
+  final ValueSetter<DateTime> onChanged;
 
   @override
   State<DateFormField> createState() => _DateFormFieldState();
@@ -25,14 +25,17 @@ class _DateFormFieldState extends State<DateFormField> {
   @override
   void initState() {
     super.initState();
-    controller = TextEditingController(text: widget.initialValue);
+    controller = TextEditingController(
+      text: DateFormat("MM/dd/yyyy HH:mm").format(widget.initialValue ?? date),
+    );
   }
+
+  DateTime date = DateTime.now();
 
   @override
   void dispose() {
     controller.clear();
     controller.dispose();
-
     super.dispose();
   }
 
@@ -49,16 +52,15 @@ class _DateFormFieldState extends State<DateFormField> {
         suffixIcon: IconButton(
           icon: const Icon(Icons.calendar_month),
           onPressed: () async {
-            DateTime? date = await Show.cupertinoDatePickerModal(context);
-            if (date != null) {
-              controller.text = DateFormat("MM/dd/yyyy HH:mm").format(date);
-              widget.onChanged.call(controller.text);
-            }
+            date =
+                await Show.cupertinoDatePickerModal(context) ?? DateTime.now();
+            controller.text = DateFormat("MM/dd/yyyy HH:mm").format(date);
+            widget.onChanged.call(date);
           },
         ),
       ),
       onChanged: (String value) {
-        widget.onChanged.call(controller.text);
+        widget.onChanged.call(date);
         // if (value.isEmpty) {
         //   widget.onChanged?.call(null);
         // } else {
