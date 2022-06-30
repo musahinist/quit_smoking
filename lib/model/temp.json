@@ -1,8 +1,45 @@
 {
     "name": "",
-    "quit_date":"",
+    "email": "",
+    "profile_photo": "",
+    "bio": "",
+    "location": "",
+    "quit_date": "",
     "daily_cigarette_count": 20,
-    "cigarette_price":25,
-    "currency":"TRY",
-    "smoking_years": 25
+    "cigarette_price": 25,
+    "currency": "TRY",
+    "cigarette_amount_in_pack": 20,
+    "smoking_years": 25,
+    "terms_and_policy_ok": false,
+    "challenge_duration_inhours": 240,
+    "save_up_for_smth":300,
+    "prefereces": {
+        "language": "",
+        "theme": "",
+        "notifications": true,
+        "sounds": true,
+        "vibration": true
+    },
+    "save_up": [
+        {
+            "title": "sdfg",
+            "note": "",
+            "price": 120,
+            "link": "",
+            "purchased": false
+        }
+    ],
+    "reasons": [
+        "sdsd",
+        "sdf"
+    ],
+    "daily_mood": [
+        {
+            "date": "",
+            "p1": 5,
+            "p2": 5,
+            "p3": 4,
+            "p4": 1
+        }
+    ]
 }

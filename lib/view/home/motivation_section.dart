@@ -71,7 +71,7 @@ class _MotivationSectionState extends State<MotivationSection>
             TabPageSelector(
               indicatorSize: 8,
               controller: _tabController,
-              selectedColor: Colors.black,
+              selectedColor: Colors.blue,
             )
           ],
         ),
