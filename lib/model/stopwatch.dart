@@ -2,6 +2,13 @@ import 'dart:async';
 
 import 'package:riverpod/riverpod.dart';
 
+final timerProviderSec = StateNotifierProvider<StopWatch, Duration>((ref) {
+  return StopWatch(const Duration(seconds: 1));
+});
+final timerProviderMin = StateNotifierProvider<StopWatch, Duration>((ref) {
+  return StopWatch(const Duration(minutes: 1));
+});
+
 class StopWatch extends StateNotifier<Duration> {
   static final DateTime quitTime = DateTime(2022, 6, 21, 18, 00);
   // 1. initialize with current time

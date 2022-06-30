@@ -4,10 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quit_smoking/model/stopwatch.dart';
 import 'package:quit_smoking/view/home/stopwatch_timer.dart';
 
-final timerProviderMin = StateNotifierProvider<StopWatch, Duration>((ref) {
-  return StopWatch(const Duration(minutes: 1));
-});
-
 class ArcChartSection extends ConsumerWidget {
   const ArcChartSection({Key? key}) : super(key: key);
 

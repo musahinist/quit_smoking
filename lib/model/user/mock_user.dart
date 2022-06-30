@@ -2,7 +2,7 @@ import 'package:quit_smoking/model/user/daily_mood.dart';
 import 'package:quit_smoking/model/user/prefereces.dart';
 import 'package:quit_smoking/model/user/save_up.dart';
 
-import 'user/user.dart';
+import 'user.dart';
 
 User mockUser = const User(
   name: 'mshn',
