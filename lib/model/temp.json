@@ -6,14 +6,14 @@
     "location": "",
     "quit_date": "",
     "daily_cigarette_count": 20,
-    "cigarette_price": 25,
+    "cigarette_price_in_pack": 25,
     "currency": "TRY",
     "cigarette_amount_in_pack": 20,
     "smoking_years": 25,
     "terms_and_policy_ok": false,
     "challenge_duration_inhours": 240,
     "save_up_for_smth":300,
-    "prefereces": {
+    "preferences": {
         "language": "",
         "theme": "",
         "notifications": true,
@@ -36,10 +36,15 @@
     "daily_mood": [
         {
             "date": "",
+            "cravings":2,
             "p1": 5,
             "p2": 5,
             "p3": 4,
-            "p4": 1
+            "p4": 1,
+            "p1c": "",
+            "p2c": "",
+            "p3c": "",
+            "p4c": ""
         }
     ]
 }
