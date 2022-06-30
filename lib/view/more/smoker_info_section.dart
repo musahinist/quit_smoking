@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quit_smoking/core/widget/ui/form/date_form_field.dart';
 import 'package:quit_smoking/model/user/mock_user.dart';
+import 'package:quit_smoking/model/user_view_model.dart';
 
-class SmokerInfoSection extends StatelessWidget {
+import '../../model/user/user.dart';
+
+class SmokerInfoSection extends ConsumerWidget {
   const SmokerInfoSection({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    User user = ref.watch(userProvider);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -19,7 +24,9 @@ class SmokerInfoSection extends StatelessWidget {
           DateFormField(
               label: 'When did you quit smoking?',
               onChanged: (value) {
-                mockUser = mockUser.copyWith(quitDate: value.toIso8601String());
+                print(value.toIso8601String());
+                ref.read(userProvider.notifier).updateUser(
+                    user.copyWith(quitDate: value.toIso8601String()));
               }),
           // TextFormField(
           //   initialValue: "20",

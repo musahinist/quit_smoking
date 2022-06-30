@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quit_smoking/model/stopwatch.dart';
+import 'package:quit_smoking/model/user_view_model.dart';
 import 'package:quit_smoking/view/home/stopwatch_timer.dart';
 
 class ArcChartSection extends ConsumerWidget {
@@ -9,8 +10,9 @@ class ArcChartSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Duration selectedDuration = const Duration(days: 14);
+    // Duration selectedDuration = const Duration(days: 14);
     final duration = ref.watch(timerProviderMin);
+    final user = ref.watch(userProvider);
     return Container(
       decoration: BoxDecoration(
           border: Border.all(width: 2), borderRadius: BorderRadius.circular(8)),
@@ -31,7 +33,8 @@ class ArcChartSection extends ConsumerWidget {
 
                   // Callback that sets the selected popup menu item.
                   onSelected: (Duration duration) {
-                    selectedDuration = duration;
+                    ref.read(userProvider.notifier).updateUser(user.copyWith(
+                        challengeDurationInhours: duration.inHours));
                   },
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<Duration>>[
@@ -116,7 +119,7 @@ class ArcChartSection extends ConsumerWidget {
                   CustomPaint(
                     painter: SemiCircleChart(
                         duration.inMinutes /
-                            (selectedDuration.inDays * 24 * 60),
+                            ((user.challengeDurationInhours ?? 24) * 60),
                         80,
                         Colors.blue),
                   ),
@@ -124,7 +127,7 @@ class ArcChartSection extends ConsumerWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '${(duration.inMinutes * 100 / (selectedDuration.inDays * 24 * 60)).clamp(0, 100).toStringAsFixed(1)}',
+                        '${(duration.inMinutes * 100 / ((user.challengeDurationInhours ?? 24) * 60)).clamp(0, 100).toStringAsFixed(1)}',
                         textScaleFactor: 3,
                       ),
                       const Text('%'),
@@ -134,7 +137,8 @@ class ArcChartSection extends ConsumerWidget {
                     padding: const EdgeInsets.all(24.0),
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: Text('${selectedDuration.inDays} GÜN'),
+                      child: Text(
+                          '${((user.challengeDurationInhours ?? 24) / 24).toStringAsFixed(0)} GÜN'),
                     ),
                   )
                   // const Icon(Icons.timer_outlined,

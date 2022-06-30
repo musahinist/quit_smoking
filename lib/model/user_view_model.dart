@@ -12,4 +12,5 @@ final userProvider = StateNotifierProvider<UserViewModel, User>((ref) {
 class UserViewModel extends StateNotifier<User> {
   // 1. initialize with current user
   UserViewModel() : super(mockUser);
+  void updateUser(User user) => state = user;
 }

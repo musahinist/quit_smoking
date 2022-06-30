@@ -4,7 +4,7 @@
     "profile_photo": "",
     "bio": "",
     "location": "",
-    "quit_date": "DateTime(2022, 6, 21, 18, 00)",
+    "quit_date": "2022-06-21T18:00:00.000",
     "daily_cigarette_count": 20,
     "cigarette_price_in_pack": 25,
     "currency": "TRY",
