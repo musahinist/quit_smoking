@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quit_smoking/core/constant.dart';
 import 'package:quit_smoking/view/home/achievement_section.dart';
+import 'package:quit_smoking/view/home/arc_chart_section.dart';
 import 'package:quit_smoking/view/home/progress_section.dart';
-import 'package:quit_smoking/view/home/stopwatch_section.dart';
+import 'package:quit_smoking/view/home/stopwatch_timer.dart';
 
 import '../profile/profile.page.dart';
 import 'daily_mood_section.dart';
@@ -47,7 +48,7 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         physics: const BouncingScrollPhysics(),
         children: [
-          const StopWatchSection(),
+          const ArcChartSection(),
           //
           const SizedBox(height: 24),
           Text("Daily Mood", style: Theme.of(context).textTheme.headline6),

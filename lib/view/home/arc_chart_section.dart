@@ -1,37 +1,20 @@
-import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quit_smoking/model/stopwatch.dart';
+import 'package:quit_smoking/view/home/stopwatch_timer.dart';
 
-class StopWatchSection extends StatefulWidget {
-  const StopWatchSection({
-    Key? key,
-  }) : super(key: key);
+final timerProviderMin = StateNotifierProvider<StopWatch, Duration>((ref) {
+  return StopWatch(const Duration(minutes: 1));
+});
 
-  @override
-  State<StopWatchSection> createState() => _StopWatchSectionState();
-}
-
-class _StopWatchSectionState extends State<StopWatchSection> {
-  late Timer timer;
-  Duration duration = DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
-  Duration selectedDuration = const Duration(days: 10);
-  @override
-  void initState() {
-    super.initState();
-    timer = Timer.periodic(const Duration(seconds: 1), (time) {
-      duration = DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
-      setState(() {});
-    });
-  }
+class ArcChartSection extends ConsumerWidget {
+  const ArcChartSection({Key? key}) : super(key: key);
 
   @override
-  void dispose() {
-    timer.cancel();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    Duration selectedDuration = const Duration(days: 14);
+    final duration = ref.watch(timerProviderMin);
     return Container(
       decoration: BoxDecoration(
           border: Border.all(width: 2), borderRadius: BorderRadius.circular(8)),
@@ -52,9 +35,7 @@ class _StopWatchSectionState extends State<StopWatchSection> {
 
                   // Callback that sets the selected popup menu item.
                   onSelected: (Duration duration) {
-                    setState(() {
-                      selectedDuration = duration;
-                    });
+                    selectedDuration = duration;
                   },
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuEntry<Duration>>[
@@ -154,7 +135,7 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.all(24.0),
+                    padding: const EdgeInsets.all(24.0),
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: Text('${selectedDuration.inDays} GÜN'),
@@ -165,39 +146,7 @@ class _StopWatchSectionState extends State<StopWatchSection> {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  children: [
-                    Text("${duration.inDays}",
-                        style: Theme.of(context).textTheme.headline3),
-                    const Text('days')
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text("${duration.inHours.remainder(24)}",
-                        style: Theme.of(context).textTheme.headline3),
-                    const Text('hours')
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text("${duration.inMinutes.remainder(60)}",
-                        style: Theme.of(context).textTheme.headline3),
-                    const Text('minutes')
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text("${(duration.inSeconds.remainder(60))}",
-                        style: Theme.of(context).textTheme.headline3),
-                    const Text('seconds')
-                  ],
-                ),
-              ],
-            ),
+            const StopWatchTimer()
           ],
         ),
       ),
