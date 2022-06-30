@@ -11,6 +11,7 @@ import 'daily_mood_section.dart';
 import 'gift_section.dart';
 import 'health_section.dart';
 import 'motivation_section.dart';
+import 'title_widget.dart';
 
 Duration duration = DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
 
@@ -48,39 +49,26 @@ class HomePage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         physics: const BouncingScrollPhysics(),
-        children: [
-          const ArcChartSection(),
+        children: const [
+          ArcChartSection(),
           //
-          const SizedBox(height: 24),
-          Text("Daily Mood", style: Theme.of(context).textTheme.headline6),
-          const SizedBox(height: 12),
-          const DailyMoodSection(),
+          TitleWidget(title: "Daily Mood"),
+          DailyMoodSection(),
           //
-          const SizedBox(height: 24),
-          Text("Toplam İlerleme", style: Theme.of(context).textTheme.headline6),
-          const SizedBox(height: 12),
-          const ProgressSection(),
+          TitleWidget(title: "Progress"),
+          ProgressSection(),
           //
-          const SizedBox(height: 24),
-          Text("Motivation", style: Theme.of(context).textTheme.headline6),
-          const SizedBox(height: 12),
-          const MotivationSection(),
+          TitleWidget(title: "Motivation"),
+          MotivationSection(),
           //
-          const SizedBox(height: 24),
-          Text("Health Improvements",
-              style: Theme.of(context).textTheme.headline6),
-          const SizedBox(height: 12),
-          const HealthSection(),
+          TitleWidget(title: "Health Improvements"),
+          HealthSection(),
           //
-          const SizedBox(height: 24),
-          Text("Achievements", style: Theme.of(context).textTheme.headline6),
-          const SizedBox(height: 12),
-          const AchievementSection(),
+          TitleWidget(title: "Achievements"),
+          AchievementSection(),
           //
-          const SizedBox(height: 24),
-          Text("Pamper Yourself", style: Theme.of(context).textTheme.headline6),
-          const SizedBox(height: 12),
-          const GiftSection(),
+          TitleWidget(title: "Pamper Yourself"),
+          GiftSection(),
         ],
       ),
     );
