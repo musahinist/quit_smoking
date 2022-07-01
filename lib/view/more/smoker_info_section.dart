@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quit_smoking/core/widget/ui/form/date_form_field.dart';
-import 'package:quit_smoking/model/user/mock_user.dart';
-import 'package:quit_smoking/model/user_view_model.dart';
+import '../../core/widget/ui/form/date_form_field.dart';
+import '../../model/user/mock_user.dart';
+import '../../model/user_view_model.dart';
 
 import '../../model/user/user.dart';
 

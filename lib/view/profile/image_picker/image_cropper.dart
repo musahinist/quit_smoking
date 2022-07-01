@@ -1,11 +1,8 @@
 import 'dart:async';
-import 'dart:io';
-
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 
 class ImageCropper extends StatefulWidget {
   const ImageCropper({Key? key, required this.image}) : super(key: key);

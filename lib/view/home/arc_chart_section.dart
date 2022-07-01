@@ -1,9 +1,9 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quit_smoking/model/stopwatch.dart';
-import 'package:quit_smoking/model/user_view_model.dart';
-import 'package:quit_smoking/view/home/stopwatch_timer.dart';
+import '../../model/stopwatch.dart';
+import '../../model/user_view_model.dart';
+import 'stopwatch_timer.dart';
 
 class ArcChartSection extends ConsumerWidget {
   const ArcChartSection({Key? key}) : super(key: key);

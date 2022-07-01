@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:quit_smoking/core/constant.dart';
-import 'package:quit_smoking/view/home/achievement_section.dart';
-import 'package:quit_smoking/view/home/arc_chart_section.dart';
-import 'package:quit_smoking/view/home/progress_section.dart';
-import 'package:quit_smoking/view/home/stopwatch_timer.dart';
+import '../../core/constant.dart';
+import 'achievement_section.dart';
+import 'arc_chart_section.dart';
+import 'progress_section.dart';
+import 'stopwatch_timer.dart';
 
 import '../more/more_page.dart';
 import '../profile/profile.page.dart';

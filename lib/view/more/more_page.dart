@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quit_smoking/view/home/title_widget.dart';
-import 'package:quit_smoking/view/more/smoker_info_section.dart';
+import '../home/title_widget.dart';
+import 'smoker_info_section.dart';
 
 class MorePage extends StatelessWidget {
   const MorePage({Key? key}) : super(key: key);

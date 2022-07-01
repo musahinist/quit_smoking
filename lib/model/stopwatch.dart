@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:quit_smoking/model/user_view_model.dart';
+import 'user_view_model.dart';
 import 'package:riverpod/riverpod.dart';
 
 final timerProviderSec = StateNotifierProvider<StopWatch, Duration>((ref) {

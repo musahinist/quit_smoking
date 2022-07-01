@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quit_smoking/core/widget/util/show_overlay.dart';
-import 'package:quit_smoking/view/health/health_page.dart';
+import '../../core/widget/util/show_overlay.dart';
+import '../health/health_page.dart';
 
 class DailyMoodSection extends StatefulWidget {
   const DailyMoodSection({

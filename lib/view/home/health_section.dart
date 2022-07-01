@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quit_smoking/view/achievement/achievement_page.dart';
-import 'package:quit_smoking/view/health/health_page.dart';
 
 import '../../core/constant.dart';
+import '../health/health_page.dart';
 import 'home_page.dart';
 
 class HealthSection extends StatelessWidget {

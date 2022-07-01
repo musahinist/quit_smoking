@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quit_smoking/model/stopwatch.dart';
+import '../../model/stopwatch.dart';
 
 class StopWatchTimer extends ConsumerWidget {
   const StopWatchTimer({Key? key}) : super(key: key);

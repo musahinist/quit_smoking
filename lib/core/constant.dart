@@ -1,11 +1,4 @@
 class Constant {
-  static const List<String> reasonList = [
-    'Daha sağlıklı olmak için',
-    'Bağımlılıklarından kurtulmak insanı daha güçlü yapar.',
-    'Günde 100 dk sigara içmek için israf oluyor. Kendime daha fazla zaman ayırmak için.',
-    'Sigara uyku kalitesini düşürüyor. Daha kaliteli bir uyku uyumak için.',
-    'Aylık 900 TL sigara masrafı var. Biriktirdiğim parayı faklı ihtiyaçlarıma harcamak için'
-  ];
   static List<Map<String, dynamic>> gifts = [
     {
       'title': 'snakcs',
@@ -86,9 +79,19 @@ class Constant {
           "1 Hafta sonra, Nikotine yönelik fiziksel bağımlılık ortadan kalkar."
     },
     {
+      'duration': Duration(days: 8),
+      "title":
+          "8 gün sonra, Canınızzın çekmesi ortlama olarak 3 sefere kadar düşecektir."
+    },
+    {
       'duration': Duration(days: 10),
       "title":
           "10 gün sonra, Tooth staining and calculus build-up from smoking should be reduced."
+    },
+    {
+      'duration': Duration(days: 12),
+      "title":
+          "12 gün sonra, Damak ve dişlerinizdeki kan dolaşımı normale dönecektir.."
     },
     {
       'duration': Duration(days: 14),
@@ -101,6 +104,11 @@ class Constant {
           "3 hafta sonra, Kan dolaşımı ve cilt neminde iyileşmeler; erken ortaya çıkan kırışıklıkların kaybolması"
     },
     {
+      'duration': Duration(days: 25),
+      "title":
+          "25 gün sonra, Canınızın çekmesi ortlama olarak 2 sefere kadar düşecektir."
+    },
+    {
       'duration': Duration(days: 30),
       "title":
           "1 ay sonra, Fiziksel kondisyon gelişir, yürürken yorulma ve tıkanma daha az görülür."
@@ -111,14 +119,34 @@ class Constant {
           "40 gün sonra, Your gums and teeth should be similar to that of a non-smoker."
     },
     {
+      'duration': Duration(days: 50),
+      "title":
+          "50 gün sonra, Bırakma sebepli kızgınlık, endişe, huysuzluk ve depresyon belirtileri tamamen kaybolur."
+    },
+    {
       'duration': Duration(days: 60),
       "title":
           "2 ay sonra, , Akciğer fonksiyonları yüzde 5-10 oranında artar.buna bağlı olarak enerji düzeyi artar."
     },
     {
+      'duration': Duration(days: 75),
+      "title":
+          "2,5 ay sonra, Bir miktar kilo (2,7kg~5.95lbs) alma ihtimalinize ragmen insulin direnci normal seviyeye iner."
+    },
+    {
       'duration': Duration(days: 90),
       "title":
           "3 ay sonra, Öksürük, kısa aralıklarla nefes alıp verme problemleri düzelir."
+    },
+    {
+      'duration': Duration(days: 100),
+      "title":
+          "100 gün sonra, Canınızın çekmesi haftada bir kaç kereye kadar düşecek psikolojik bağımlılık kolay yönetilir olacaktır."
+    },
+    {
+      'duration': Duration(days: 120),
+      "title":
+          "4 ay sonra, , Dolaşımınız hızlanır ve akciğer fonksiyonlarınız 20% ye kadar artar."
     },
     {
       'duration': Duration(days: 180),

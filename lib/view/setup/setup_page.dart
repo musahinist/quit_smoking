@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quit_smoking/core/widget/ui/form/date_form_field.dart';
-import 'package:quit_smoking/model/user/mock_user.dart';
+import '../../core/widget/ui/form/date_form_field.dart';
+import '../../model/user/mock_user.dart';
 
 class SetupPage extends StatelessWidget {
   const SetupPage({Key? key}) : super(key: key);

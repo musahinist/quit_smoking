@@ -1,31 +1,32 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/constant.dart';
+import '../../model/user_view_model.dart';
 import '../motivation/motivation_page.dart';
 
-class MotivationSection extends StatefulWidget {
+class MotivationSection extends ConsumerStatefulWidget {
   const MotivationSection({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<MotivationSection> createState() => _MotivationSectionState();
+  MotivationSectionState createState() => MotivationSectionState();
 }
 
-class _MotivationSectionState extends State<MotivationSection>
+class MotivationSectionState extends ConsumerState<MotivationSection>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   late final Timer _timer;
   @override
   void initState() {
     super.initState();
-    _tabController =
-        TabController(length: Constant.reasonList.length, vsync: this);
+    final user = ref.read(userProvider);
+    _tabController = TabController(length: user.reasons!.length, vsync: this);
     _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
       _tabController.animateTo(
-        (_tabController.index + 1) % Constant.reasonList.length,
+        (_tabController.index + 1) % user.reasons!.length,
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
       );
@@ -58,15 +59,19 @@ class _MotivationSectionState extends State<MotivationSection>
         child: Column(
           children: [
             Expanded(
-              child: TabBarView(
-                  controller: _tabController,
-                  children: List.generate(
-                      Constant.reasonList.length,
-                      (i) => Center(
-                              child: Text(
-                            Constant.reasonList[i],
-                            textAlign: TextAlign.center,
-                          )))),
+              child: Consumer(builder:
+                  (BuildContext context, WidgetRef ref, Widget? child) {
+                final user = ref.watch(userProvider);
+                return TabBarView(
+                    controller: _tabController,
+                    children: List.generate(
+                        user.reasons!.length,
+                        (i) => Center(
+                                child: Text(
+                              user.reasons![i],
+                              textAlign: TextAlign.center,
+                            ))));
+              }),
             ),
             TabPageSelector(
               indicatorSize: 8,

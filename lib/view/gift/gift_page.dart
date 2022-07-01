@@ -5,12 +5,6 @@ class GiftPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: const Text('Pamper Yourself'),
-      ),
-    );
+    return Scaffold();
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quit_smoking/core/widget/util/show_overlay.dart';
+import '../../core/widget/util/show_overlay.dart';
 
 import '../../model/user_view_model.dart';
 
