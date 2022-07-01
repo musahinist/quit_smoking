@@ -86,7 +86,7 @@ class Constant {
           "1 Hafta sonra, Nikotine yönelik fiziksel bağımlılık ortadan kalkar."
     },
     {
-      'duration': Duration(days: 9),
+      'duration': Duration(days: 10),
       "title":
           "10 gün sonra, Tooth staining and calculus build-up from smoking should be reduced."
     },

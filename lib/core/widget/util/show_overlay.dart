@@ -21,6 +21,14 @@ class Show {
   //       ),
   //     );
   // }
+  static dialog(BuildContext context, Widget child) async {
+    return showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        child: child,
+      ),
+    );
+  }
 
   static Future<DateTime?> cupertinoDatePickerModal(
     BuildContext context,
@@ -78,7 +86,8 @@ class Show {
     showModalBottomSheet(
       context: context,
       enableDrag: true,
-      //  isScrollControlled: true,
+      //not ot ovwerlap by keyboard
+      isScrollControlled: true,
       elevation: 16,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
@@ -88,23 +97,27 @@ class Show {
       ),
       builder: (context) => Container(
         //   height: 200,
-        decoration: BoxDecoration(
-          color: Colors.blueGrey[100],
-          borderRadius: const BorderRadius.only(
+        decoration: const BoxDecoration(
+          // color: Colors.blueGrey[100],
+          borderRadius: BorderRadius.only(
             topLeft: Radius.circular(16),
             topRight: Radius.circular(16),
           ),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Icon(Icons.more_horiz, size: 36, color: Colors.grey),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: widget,
-            )
-          ],
+        child: Padding(
+          //not ot ovwerlap by keyboard
+          padding: MediaQuery.of(context).viewInsets,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Icon(Icons.more_horiz, size: 36, color: Colors.grey),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: widget,
+              )
+            ],
+          ),
         ),
       ),
     );
