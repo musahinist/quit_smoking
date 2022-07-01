@@ -141,7 +141,7 @@ class Constant {
     {
       'duration': Duration(days: 100),
       "title":
-          "100 gün sonra, Canınızın çekmesi haftada bir kaç kereye kadar düşecek psikolojik bağımlılık kolay yönetilir olacaktır."
+          "100 gün sonra, Canınızın çekmesi haftada bir kaç kereye kadar düşecek ve daha kolay yönetilir olacaktır."
     },
     {
       'duration': Duration(days: 120),

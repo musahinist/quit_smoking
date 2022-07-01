@@ -26,67 +26,66 @@ class _ProfilePageState extends State<ProfilePage> {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         children: [
-          Row(
-            children: [
-              Container(
-                height: 120,
-                width: 120,
-                alignment: Alignment.bottomRight,
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  border: Border.all(width: 2),
-                  borderRadius: BorderRadius.circular(100),
-                  image: photoUrl != null
-                      ? DecorationImage(
-                          image: FileImage(
-                            File(photoUrl!),
-                          ),
-                          fit: BoxFit.cover,
-                        )
-                      : null,
-                ),
-                child: FloatingActionButton(
-                  mini: true,
-                  elevation: 0,
-                  backgroundColor: Colors.white,
-                  child: const Icon(
-                    Icons.add_a_photo,
-                    color: Colors.grey,
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) {
-                          //  return GalleryPicker();
-                          return CameraWidget(
-                            onImagePicked: (image) {
-                              photoUrl = image?.path;
-                            },
-                          );
-                        },
-                      ),
-                    );
-                  },
-                ),
+          Center(
+            child: Container(
+              height: 120,
+              width: 120,
+              alignment: Alignment.bottomRight,
+              decoration: BoxDecoration(
+                //  color: Colors.grey.shade200,
+                border: Border.all(width: 2, color: Colors.lightBlue),
+                borderRadius: BorderRadius.circular(100),
+                image: photoUrl != null
+                    ? DecorationImage(
+                        image: FileImage(
+                          File(photoUrl!),
+                        ),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
               ),
-              const SizedBox(width: 24),
-              Expanded(
-                child: Container(
-                  height: 120,
-                  decoration: BoxDecoration(
-                      border: Border.all(width: 2),
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Column(
-                    children: [
-                      const Text('mshn',
-                          style: TextStyle(
-                              fontSize: 24, fontWeight: FontWeight.bold)),
-                      const Text('Bırakma tarihi: 21 Haziram 2022')
-                    ],
-                  ),
+              child: FloatingActionButton(
+                mini: true,
+                elevation: 0,
+                backgroundColor: Colors.white,
+                child: const Icon(
+                  Icons.add_a_photo,
+                  color: Colors.grey,
                 ),
-              )
-            ],
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) {
+                        //  return GalleryPicker();
+                        return CameraWidget(
+                          onImagePicked: (image) {
+                            photoUrl = image?.path;
+                          },
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+                border: Border.all(width: 2),
+                borderRadius: BorderRadius.circular(8)),
+            child: Column(
+              children: [
+                const Text('mshn',
+                    style:
+                        TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                const Text(
+                  'Bırakma tarihi\n21 Haziran 2022',
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ),
           ),
           const SizedBox(height: 24),
           Container(

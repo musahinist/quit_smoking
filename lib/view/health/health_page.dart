@@ -32,6 +32,7 @@ class HealthPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                         child: LinearProgressIndicator(
                           minHeight: 12,
+                          backgroundColor: Colors.lightBlue[100],
                           valueColor: AlwaysStoppedAnimation(
                               elapsed >= 1 ? Colors.green : Colors.blue),
                           value: elapsed,

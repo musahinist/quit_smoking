@@ -59,8 +59,11 @@ class AchievementSection extends StatelessWidget {
                                       '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}')
                                 ],
                               )),
-                          const Icon(Icons.health_and_safety_outlined,
-                              size: 80),
+                          const Icon(
+                            Icons.health_and_safety_outlined,
+                            size: 80,
+                            color: Colors.amber,
+                          ),
                           Text(Constant.achievements[i]['body']),
                         ],
                       ),

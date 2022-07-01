@@ -87,43 +87,49 @@ class _DailyMoodSectionState extends State<DailyMoodSection> {
                       const Text('How was your mood?'),
                       Row(
                         children: [
-                          const Icon(Icons.mood_bad),
-                          Expanded(child:
-                              StatefulBuilder(builder: (context, setState) {
-                            return SliderTheme(
-                              data: SliderThemeData(
-                                trackShape: GradientRectSliderTrackShape(
-                                    gradient: gradient, darkenInactive: false),
-                              ),
-                              child: Slider(
-                                  value: moodVal,
-                                  activeColor: Colors.grey,
-                                  thumbColor: Colors.blue,
-                                  divisions: 4,
-                                  min: 1,
-                                  max: 5,
-                                  onChanged: (val) {
-                                    setStatus(i, val.toInt() - 1);
-
-                                    moodVal = val;
-                                    if (val > 1) {
-                                      gradient = LinearGradient(
+                          const Icon(Icons.mood_bad, color: Colors.red),
+                          Expanded(
+                            child: StatefulBuilder(
+                              builder: (context, setState) {
+                                return SliderTheme(
+                                  data: SliderThemeData(
+                                    trackShape: GradientRectSliderTrackShape(
+                                        gradient: gradient,
+                                        darkenInactive: false),
+                                  ),
+                                  child: Slider(
+                                    value: moodVal,
+                                    activeColor: Colors.grey,
+                                    thumbColor: Colors.blue,
+                                    divisions: 4,
+                                    min: 1,
+                                    max: 5,
+                                    onChanged: (val) {
+                                      setStatus(i, val.toInt() - 1);
+                                      moodVal = val;
+                                      if (val > 1) {
+                                        gradient = LinearGradient(
                                           colors: colors
                                               .take((val).toInt())
-                                              .toList());
-                                    }
-                                    setState(() {});
-                                  }),
-                            );
-                          })),
-                          const Icon(Icons.mood),
+                                              .toList(),
+                                        );
+                                      }
+                                      setState(() {});
+                                    },
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                          const Icon(Icons.mood, color: Colors.lightBlue),
                         ],
                       ),
 
                       const SizedBox(height: 16),
 
                       TextFormField(
-                        maxLines: 5,
+                        maxLines: null,
+                        maxLength: 144,
                         decoration: const InputDecoration(
                             hintText: 'Comments',
                             border: OutlineInputBorder(

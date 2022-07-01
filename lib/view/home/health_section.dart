@@ -40,20 +40,28 @@ class HealthSection extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation(
-                                      elapsed < 1 ? Colors.blue : Colors.green),
-                                  value: elapsed,
+                          Row(
+                            children: [
+                              Expanded(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: LinearProgressIndicator(
+                                    minHeight: 12,
+                                    backgroundColor: Colors.pinkAccent[100],
+                                    valueColor: AlwaysStoppedAnimation(
+                                        elapsed >= 1
+                                            ? Colors.green
+                                            : Colors.blue),
+                                    value: elapsed,
+                                  ),
                                 ),
-                                Text(
-                                    '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}')
-                              ],
-                            ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                    '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}%'),
+                              )
+                            ],
                           ),
                           const SizedBox(width: 12),
                           Text(Constant.healthStatus[i]['title']),
