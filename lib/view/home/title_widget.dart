@@ -7,19 +7,17 @@ class TitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 24, 0, 6),
+      padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title,
-              style:
-                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-            ),
+            icon: const Icon(Icons.arrow_forward_ios, size: 16),
           )
         ],
       ),

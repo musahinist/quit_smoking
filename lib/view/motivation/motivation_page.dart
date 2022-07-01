@@ -17,7 +17,20 @@ class MotivationPage extends ConsumerWidget {
         title: const Text('Motivation'),
       ),
       body: ReorderableListView.builder(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        physics: const BouncingScrollPhysics(),
         itemCount: user.reasons!.length,
+        proxyDecorator: (Widget child, int index, Animation<double> animation) {
+          return Material(
+            //  color: Colors.transparent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: child,
+          );
+        },
+        // itemExtent: 100,
+        buildDefaultDragHandles: false,
         onReorder: (int oldIndex, int newIndex) {
           if (oldIndex < newIndex) {
             newIndex -= 1;
@@ -26,33 +39,64 @@ class MotivationPage extends ConsumerWidget {
           user.reasons!.insert(newIndex, item);
         },
         itemBuilder: (_, i) {
-          return ListTile(key: Key('$i'), title: Text(user.reasons![i]));
+          return Container(
+            key: Key('$i'),
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(8),
+            margin: const EdgeInsets.only(bottom: 12),
+            decoration: BoxDecoration(
+              //color: Colors.white,
+              border: Border.all(width: 2),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                Expanded(child: Text(user.reasons![i])),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.more_horiz_outlined)),
+                    ReorderableDragStartListener(
+                      index: i,
+                      child: const Icon(Icons.drag_handle_rounded),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Show.bottomSheet(
-              context,
-              Column(
-                children: [
-                  const SizedBox(height: 16),
-                  TextFormField(
-                    maxLines: 5,
-                    autofocus: true,
-                    decoration: const InputDecoration(
-                        hintText: 'Comments',
-                        border: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.greenAccent, width: 5.0),
-                        )),
+            context,
+            Column(
+              children: [
+                const SizedBox(height: 16),
+                TextFormField(
+                  maxLines: null,
+                  autofocus: true,
+                  maxLength: 144,
+                  decoration: const InputDecoration(
+                    hintText: 'Reason to quit smoking...',
+                    border: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Colors.greenAccent, width: 5.0),
+                    ),
                   ),
-                  const SizedBox(height: 16),
-                ],
-              ));
+                ),
+                const SizedBox(height: 16),
+              ],
+            ),
+          );
         },
         backgroundColor: Colors.white,
         shape: const CircleBorder(
-            side: BorderSide(color: Colors.lightBlue, width: 4)),
+          side: BorderSide(color: Colors.lightBlue, width: 4),
+        ),
         child:
             const Icon(Icons.add_moderator_outlined, color: Colors.lightBlue),
       ),
