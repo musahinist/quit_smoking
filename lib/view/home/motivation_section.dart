@@ -6,31 +6,34 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../model/user_view_model.dart';
 import '../motivation/motivation_page.dart';
 
-class MotivationSection extends ConsumerStatefulWidget {
-  const MotivationSection({
-    Key? key,
-  }) : super(key: key);
+class MotivationSection extends StatefulWidget {
+  const MotivationSection({Key? key, required this.reasonList})
+      : super(key: key);
+  final List<String> reasonList;
 
   @override
-  MotivationSectionState createState() => MotivationSectionState();
+  State<MotivationSection> createState() => _MotivationSectionState();
 }
 
-class MotivationSectionState extends ConsumerState<MotivationSection>
+class _MotivationSectionState extends State<MotivationSection>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+  late final TabController _tabController;
   late final Timer _timer;
+
   @override
-  void initState() {
-    super.initState();
-    final user = ref.read(userProvider);
-    _tabController = TabController(length: user.reasons!.length, vsync: this);
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    _tabController =
+        TabController(length: widget.reasonList.length, vsync: this);
     _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
       _tabController.animateTo(
-        (_tabController.index + 1) % user.reasons!.length,
+        (_tabController.index + 1) % widget.reasonList.length,
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
       );
     });
+    //  WidgetsBinding.instance.addPostFrameCallback((_) {});
   }
 
   @override
@@ -59,19 +62,18 @@ class MotivationSectionState extends ConsumerState<MotivationSection>
         child: Column(
           children: [
             Expanded(
-              child: Consumer(builder:
-                  (BuildContext context, WidgetRef ref, Widget? child) {
-                final user = ref.watch(userProvider);
-                return TabBarView(
-                    controller: _tabController,
-                    children: List.generate(
-                        user.reasons!.length,
-                        (i) => Center(
-                                child: Text(
-                              user.reasons![i],
-                              textAlign: TextAlign.center,
-                            ))));
-              }),
+              child: TabBarView(
+                controller: _tabController,
+                children: List.generate(
+                  widget.reasonList.length,
+                  (i) => Center(
+                    child: Text(
+                      widget.reasonList[i],
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ),
             ),
             TabPageSelector(
               indicatorSize: 8,

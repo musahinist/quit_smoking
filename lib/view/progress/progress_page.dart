@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quit_smoking/view/home/title_widget.dart';
+import '../home/title_widget.dart';
 
 import '../../core/constant.dart';
 import '../../model/stopwatch.dart';

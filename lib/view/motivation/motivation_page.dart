@@ -39,8 +39,12 @@ class MotivationPage extends StatelessWidget {
               if (oldIndex < newIndex) {
                 newIndex -= 1;
               }
-              final String item = user.reasons!.removeAt(oldIndex);
-              user.reasons!.insert(newIndex, item);
+              List<String> reasonList = user.reasons!.toList();
+              final String item = reasonList.removeAt(oldIndex);
+              reasonList.insert(newIndex, item);
+              ref
+                  .read(userProvider.notifier)
+                  .updateUser(user.copyWith(reasons: reasonList));
             },
             itemBuilder: (_, i) {
               return Container(

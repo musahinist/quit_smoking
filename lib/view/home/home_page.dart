@@ -50,26 +50,26 @@ class HomePage extends StatelessWidget {
           return ListView(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             physics: const BouncingScrollPhysics(),
-            children: const [
-              ArcChartSection(),
+            children: [
+              const ArcChartSection(),
               //
-              TitleWidget(title: "Daily Mood"),
-              DailyMoodSection(),
+              const TitleWidget(title: "Daily Mood"),
+              const DailyMoodSection(),
               //
-              TitleWidget(title: "Progress"),
-              ProgressSection(),
+              const TitleWidget(title: "Progress"),
+              const ProgressSection(),
               //
-              TitleWidget(title: "Motivation"),
-              MotivationSection(),
+              const TitleWidget(title: "Motivation"),
+              MotivationSection(reasonList: user.reasons!),
               //
-              TitleWidget(title: "Health Improvements"),
-              HealthSection(),
+              const TitleWidget(title: "Health Improvements"),
+              const HealthSection(),
               //
-              TitleWidget(title: "Achievements"),
-              AchievementSection(),
+              const TitleWidget(title: "Achievements"),
+              const AchievementSection(),
               //
-              TitleWidget(title: "Pamper Yourself"),
-              GiftSection(),
+              const TitleWidget(title: "Pamper Yourself"),
+              const GiftSection(),
             ],
           );
         },

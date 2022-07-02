@@ -1,7 +1,6 @@
 import 'daily_mood.dart';
 import 'prefereces.dart';
 import 'save_up.dart';
-
 import 'user.dart';
 
 User mockUser = const User(

@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/constant.dart';
 import '../../model/stopwatch.dart';
-import '../../model/user_view_model.dart';
 import '../health/health_page.dart';
 
 class HealthSection extends ConsumerWidget {

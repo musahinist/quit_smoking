@@ -58,7 +58,8 @@ class ProfilePage extends ConsumerWidget {
                         //  return GalleryPicker();
                         return CameraWidget(
                           onImagePicked: (image) {
-                            //   user.profilePhoto = image?.path;
+                            ref.read(userProvider.notifier).updateUser(
+                                user.copyWith(profilePhoto: image?.path));
                           },
                         );
                       },

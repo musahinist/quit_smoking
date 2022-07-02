@@ -131,8 +131,9 @@ class _CameraWidgetState extends State<CameraWidget>
       appBar: AppBar(
         backgroundColor: Colors.black38,
         elevation: 0,
+        iconTheme: IconThemeData(color: Colors.white),
         title: CupertinoSlidingSegmentedControl<bool>(
-          thumbColor: Colors.purple.withOpacity(0.5),
+          thumbColor: Colors.blue,
           groupValue: isCamera,
           children: const {
             true: Icon(Icons.camera_alt),
@@ -148,7 +149,7 @@ class _CameraWidgetState extends State<CameraWidget>
       extendBody: true,
       backgroundColor: Colors.black,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: _captureControlRowWidget(),
+      floatingActionButton: isCamera ? _captureControlRowWidget() : null,
       bottomNavigationBar: BottomAppBar(
         color: Colors.black38,
         elevation: 0,
