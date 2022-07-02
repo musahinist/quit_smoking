@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/constant.dart';
+import '../../model/stopwatch.dart';
+import '../../model/user_view_model.dart';
 
-class HealthPage extends StatelessWidget {
+class HealthPage extends ConsumerWidget {
   const HealthPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    Duration duration =
-        DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
+  Widget build(BuildContext context, WidgetRef ref) {
+    // final user = ref.watch(userProvider);
+    final duration = ref.watch(timerProviderMin);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,

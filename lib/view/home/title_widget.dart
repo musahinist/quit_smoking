@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class TitleWidget extends StatelessWidget {
-  const TitleWidget({Key? key, required this.title}) : super(key: key);
+  const TitleWidget(
+      {Key? key, required this.title, this.icon = Icons.arrow_forward_ios})
+      : super(key: key);
   final String title;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class TitleWidget extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.arrow_forward_ios, size: 16),
+            icon: Icon(icon, size: 16),
           )
         ],
       ),

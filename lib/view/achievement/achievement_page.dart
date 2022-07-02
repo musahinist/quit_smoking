@@ -16,12 +16,17 @@ class AchievementPage extends StatelessWidget {
         title: const Text('Achievements'),
       ),
       body: GridView(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          mainAxisSpacing: 12,
-          crossAxisSpacing: 12,
-          crossAxisCount: 2,
-        ),
+        // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        //   mainAxisSpacing: 12,
+        //   crossAxisSpacing: 12,
+        //   crossAxisCount: 2,
+        // ),
         padding: const EdgeInsets.all(12),
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+            maxCrossAxisExtent: 160,
+            mainAxisExtent: 200),
         children: List.generate(
           Constant.achievements.length,
           (i) {
@@ -59,7 +64,11 @@ class AchievementPage extends StatelessWidget {
                               color: Colors.green,
                             ),
                     ),
-                    const Icon(Icons.health_and_safety_rounded, size: 100),
+                    const Icon(
+                      Icons.health_and_safety_outlined,
+                      size: 80,
+                      color: Colors.grey,
+                    ),
                     Text(Constant.achievements[i]['body']),
                   ],
                 ),
