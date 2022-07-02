@@ -92,6 +92,7 @@ class GiftPage extends ConsumerWidget {
           Show.bottomSheet(
             context,
             Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: 16),
                 TextFormField(
@@ -140,6 +141,8 @@ class GiftPage extends ConsumerWidget {
                     ),
                   ),
                 ),
+                const SizedBox(height: 16),
+                ElevatedButton(onPressed: () {}, child: const Text('Save')),
                 const SizedBox(height: 16),
               ],
             ),

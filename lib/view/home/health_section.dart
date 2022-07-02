@@ -13,9 +13,8 @@ class HealthSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Duration selectedDuration = const Duration(days: 14);
     final duration = ref.watch(timerProviderMin);
-    final user = ref.watch(userProvider);
+    // final user = ref.watch(userProvider);
     return InkWell(
       onTap: () {
         Navigator.of(context)

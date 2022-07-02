@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../model/user_view_model.dart';
 import '../more/more_page.dart';
 import '../profile/profile.page.dart';
 import 'achievement_section.dart';
@@ -42,30 +44,35 @@ class HomePage extends StatelessWidget {
               icon: const Icon(Icons.face))
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-        physics: const BouncingScrollPhysics(),
-        children: const [
-          ArcChartSection(),
-          //
-          TitleWidget(title: "Daily Mood"),
-          DailyMoodSection(),
-          //
-          TitleWidget(title: "Progress"),
-          ProgressSection(),
-          //
-          TitleWidget(title: "Motivation"),
-          MotivationSection(),
-          //
-          TitleWidget(title: "Health Improvements"),
-          HealthSection(),
-          //
-          TitleWidget(title: "Achievements"),
-          AchievementSection(),
-          //
-          TitleWidget(title: "Pamper Yourself"),
-          GiftSection(),
-        ],
+      body: Consumer(
+        builder: (context, ref, child) {
+          final user = ref.watch(userProvider);
+          return ListView(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            physics: const BouncingScrollPhysics(),
+            children: const [
+              ArcChartSection(),
+              //
+              TitleWidget(title: "Daily Mood"),
+              DailyMoodSection(),
+              //
+              TitleWidget(title: "Progress"),
+              ProgressSection(),
+              //
+              TitleWidget(title: "Motivation"),
+              MotivationSection(),
+              //
+              TitleWidget(title: "Health Improvements"),
+              HealthSection(),
+              //
+              TitleWidget(title: "Achievements"),
+              AchievementSection(),
+              //
+              TitleWidget(title: "Pamper Yourself"),
+              GiftSection(),
+            ],
+          );
+        },
       ),
     );
   }
