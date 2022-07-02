@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quit_smoking/model/user/save_up.dart';
 import '../../core/widget/util/show_overlay.dart';
 
+import '../../model/stopwatch.dart';
 import '../../model/user_view_model.dart';
 
 class GiftPage extends ConsumerWidget {
@@ -10,60 +12,76 @@ class GiftPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(userProvider);
+    final duration = ref.watch(timerProviderMin);
+    List<SaveUp> saveUp = user.saveUp!.toList();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text('My Gifts'),
       ),
-      body: ReorderableListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+      body: GridView.builder(
+        itemCount: user.saveUp!.length,
+        padding: const EdgeInsets.fromLTRB(12, 12, 12, 80),
         physics: const BouncingScrollPhysics(),
-        itemCount: user.reasons!.length,
-        proxyDecorator: (Widget child, int index, Animation<double> animation) {
-          return Material(
-            //  color: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: child,
-          );
-        },
+        // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        //   crossAxisCount: 2,
+        //   crossAxisSpacing: 12,
+        //   mainAxisSpacing: 12,
+        // ),
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+            maxCrossAxisExtent: 160,
+            mainAxisExtent: 180),
         // itemExtent: 100,
-        buildDefaultDragHandles: false,
-        onReorder: (int oldIndex, int newIndex) {
-          if (oldIndex < newIndex) {
-            newIndex -= 1;
-          }
-          final String item = user.reasons!.removeAt(oldIndex);
-          user.reasons!.insert(newIndex, item);
-        },
+
         itemBuilder: (_, i) {
+          double priceRatio = duration.inHours * (30 / 24) / saveUp[i].price!;
           return Container(
             key: Key('$i'),
             alignment: Alignment.center,
-            padding: const EdgeInsets.all(8),
-            margin: const EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
             decoration: BoxDecoration(
               //color: Colors.white,
               border: Border.all(width: 2),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Row(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(child: Text(user.reasons![i])),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.more_horiz_outlined)),
-                    ReorderableDragStartListener(
-                      index: i,
-                      child: const Icon(Icons.drag_handle_rounded),
-                    ),
                   ],
-                )
+                ),
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SizedBox(
+                      width: 64,
+                      height: 64,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 8,
+                        backgroundColor: Colors.blueGrey.shade50,
+                        valueColor: AlwaysStoppedAnimation(priceRatio > 1
+                            ? Colors.lightGreen
+                            : Colors.lightBlue),
+                        value: priceRatio,
+                      ),
+                    ),
+                    Text(
+                        '${priceRatio > 1 ? 100 : (priceRatio * 100).toStringAsFixed(0)}')
+                  ],
+                ),
+                Text(
+                  '₺${saveUp[i].price!}',
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(saveUp[i].title!),
               ],
             ),
           );
@@ -77,11 +95,45 @@ class GiftPage extends ConsumerWidget {
               children: [
                 const SizedBox(height: 16),
                 TextFormField(
-                  maxLines: null,
                   autofocus: true,
+                  decoration: const InputDecoration(
+                    labelText: 'Gift Name',
+                    border: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Colors.greenAccent, width: 5.0),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  autofocus: true,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    labelText: 'Price',
+                    border: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Colors.greenAccent, width: 5.0),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  autofocus: true,
+                  keyboardType: TextInputType.url,
+                  decoration: const InputDecoration(
+                    labelText: 'Gift Link',
+                    border: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Colors.greenAccent, width: 5.0),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  maxLines: null,
                   maxLength: 144,
                   decoration: const InputDecoration(
-                    hintText: 'Reason to quit smoking...',
+                    labelText: 'Note',
                     border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: Colors.greenAccent, width: 5.0),
@@ -98,7 +150,7 @@ class GiftPage extends ConsumerWidget {
           side: BorderSide(color: Colors.lightBlue, width: 4),
         ),
         child:
-            const Icon(Icons.add_moderator_outlined, color: Colors.lightBlue),
+            const Icon(Icons.card_giftcard_outlined, color: Colors.lightBlue),
       ),
     );
   }

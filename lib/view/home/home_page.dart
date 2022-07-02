@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../core/constant.dart';
-import 'achievement_section.dart';
-import 'arc_chart_section.dart';
-import 'progress_section.dart';
-import 'stopwatch_timer.dart';
 
 import '../more/more_page.dart';
 import '../profile/profile.page.dart';
+import 'achievement_section.dart';
+import 'arc_chart_section.dart';
 import 'daily_mood_section.dart';
 import 'gift_section.dart';
 import 'health_section.dart';
 import 'motivation_section.dart';
+import 'progress_section.dart';
 import 'title_widget.dart';
-
-// Duration duration = DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

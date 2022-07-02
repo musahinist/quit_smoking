@@ -17,14 +17,22 @@ class AchievementPage extends StatelessWidget {
       ),
       body: GridView(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, childAspectRatio: 3 / 4),
+          mainAxisSpacing: 12,
+          crossAxisSpacing: 12,
+          crossAxisCount: 2,
+        ),
         padding: const EdgeInsets.all(12),
         children: List.generate(
           Constant.achievements.length,
           (i) {
             double elapsed = duration.inSeconds /
                 Constant.achievements[i]['duration'].inSeconds;
-            return Card(
+            return Container(
+              decoration: BoxDecoration(
+                //color: Colors.white,
+                border: Border.all(width: 2),
+                borderRadius: BorderRadius.circular(8),
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(

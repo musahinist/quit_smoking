@@ -17,7 +17,7 @@ class MotivationPage extends ConsumerWidget {
         title: const Text('Motivation'),
       ),
       body: ReorderableListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        padding: const EdgeInsets.fromLTRB(12, 12, 12, 80),
         physics: const BouncingScrollPhysics(),
         itemCount: user.reasons!.length,
         proxyDecorator: (Widget child, int index, Animation<double> animation) {
