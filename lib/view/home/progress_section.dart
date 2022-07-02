@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/constant.dart';
 import '../../model/stopwatch.dart';
 import '../../model/user_view_model.dart';
-import 'home_page.dart';
 
 class ProgressSection extends ConsumerWidget {
   const ProgressSection({

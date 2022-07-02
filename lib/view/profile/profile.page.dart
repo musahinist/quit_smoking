@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../model/stopwatch.dart';
 import '../../model/user/user.dart';
 import '../../model/user_view_model.dart';
-import '../home/home_page.dart';
 import 'image_picker/camera_widget.dart';
 
 class ProfilePage extends ConsumerWidget {

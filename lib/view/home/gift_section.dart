@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quit_smoking/model/user/save_up.dart';
-import 'package:quit_smoking/model/user/user.dart';
 
-import '../../core/constant.dart';
 import '../../model/stopwatch.dart';
+import '../../model/user/save_up.dart';
+import '../../model/user/user.dart';
 import '../../model/user_view_model.dart';
 import '../gift/gift_page.dart';
-import 'home_page.dart';
 
 class GiftSection extends ConsumerWidget {
   const GiftSection({
@@ -68,7 +66,7 @@ class GiftSection extends ConsumerWidget {
                     ),
                     Text(
                       '₺${saveUp[i].price!}',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     Text(saveUp[i].title!),
                   ],
