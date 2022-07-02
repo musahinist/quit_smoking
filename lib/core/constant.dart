@@ -21,13 +21,6 @@ class Constant {
       'link': '',
       'purchased': false
     },
-    {
-      'title': 'snakcs',
-      'note': '',
-      'price': 120,
-      'link': '',
-      'purchased': false
-    },
   ];
   static const List<Map<String, dynamic>> healthStatus = [
     {

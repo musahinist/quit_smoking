@@ -13,7 +13,7 @@ import 'health_section.dart';
 import 'motivation_section.dart';
 import 'title_widget.dart';
 
-Duration duration = DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
+// Duration duration = DateTime.now().difference(DateTime(2022, 6, 21, 18, 00));
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

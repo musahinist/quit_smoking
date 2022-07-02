@@ -23,7 +23,7 @@ class AchievementSection extends StatelessWidget {
         height: 176,
         child: ListView(
           scrollDirection: Axis.horizontal,
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           children: List.generate(
             Constant.achievements.length,
             (i) {
@@ -62,13 +62,13 @@ class AchievementSection extends StatelessWidget {
                           const Icon(
                             Icons.health_and_safety_outlined,
                             size: 80,
-                            color: Colors.amber,
+                            color: Colors.grey,
                           ),
                           Text(Constant.achievements[i]['body']),
                         ],
                       ),
                     )
-                  : SizedBox();
+                  : const SizedBox();
             },
           ),
         ),

@@ -38,12 +38,26 @@ User mockUser = const User(
   ],
   saveUp: [
     SaveUp(
-      title: 'snacks',
+      title: 'Snacks',
       price: 200,
       link: 'df',
       note: 'sdf',
       purchased: false,
-    )
+    ),
+    SaveUp(
+      title: 'Trainers',
+      price: 800,
+      link: 'df',
+      note: 'sdf',
+      purchased: false,
+    ),
+    SaveUp(
+      title: 'IOS dev account',
+      price: 1200,
+      link: 'df',
+      note: 'sdf',
+      purchased: false,
+    ),
   ],
   dailyMood: [
     DailyMood(

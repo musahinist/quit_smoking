@@ -1,21 +1,21 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../model/stopwatch.dart';
+import '../../model/user/user.dart';
+import '../../model/user_view_model.dart';
 import '../home/home_page.dart';
 import 'image_picker/camera_widget.dart';
 
-class ProfilePage extends StatefulWidget {
+class ProfilePage extends ConsumerWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
-  String? photoUrl;
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final User user = ref.watch(userProvider);
+    final duration = ref.watch(timerProviderMin);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -35,10 +35,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 //  color: Colors.grey.shade200,
                 border: Border.all(width: 2, color: Colors.lightBlue),
                 borderRadius: BorderRadius.circular(100),
-                image: photoUrl != null
+                image: user.profilePhoto != null
                     ? DecorationImage(
                         image: FileImage(
-                          File(photoUrl!),
+                          File(user.profilePhoto!),
                         ),
                         fit: BoxFit.cover,
                       )
@@ -59,7 +59,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         //  return GalleryPicker();
                         return CameraWidget(
                           onImagePicked: (image) {
-                            photoUrl = image?.path;
+                            //   user.profilePhoto = image?.path;
                           },
                         );
                       },

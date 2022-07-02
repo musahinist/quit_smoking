@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quit_smoking/model/user/save_up.dart';
+import 'package:quit_smoking/model/user/user.dart';
 
 import '../../core/constant.dart';
+import '../../model/stopwatch.dart';
+import '../../model/user_view_model.dart';
 import '../gift/gift_page.dart';
 import 'home_page.dart';
 
-class GiftSection extends StatelessWidget {
+class GiftSection extends ConsumerWidget {
   const GiftSection({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final User user = ref.watch(userProvider);
+    final duration = ref.watch(timerProviderMin);
+    //to convert unmodifiable to modifiable
+    List<SaveUp> saveUp = user.saveUp!.toList();
+    saveUp.sort((a, b) => a.price!.compareTo(b.price!));
     return InkWell(
       onTap: () {
         Navigator.of(context)
@@ -22,11 +32,11 @@ class GiftSection extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),
           children: List.generate(
-            Constant.gifts.length,
+            saveUp.length,
             (i) {
               double priceRatio =
-                  duration.inHours * (30 / 24) / Constant.gifts[i]['price'];
-              Constant.gifts.sort((a, b) => a['price'].compareTo(b['price']));
+                  duration.inHours * (30 / 24) / saveUp[i].price!;
+
               return Container(
                 width: 156,
                 padding: const EdgeInsets.all(12.0),
@@ -46,7 +56,9 @@ class GiftSection extends StatelessWidget {
                           child: CircularProgressIndicator(
                             strokeWidth: 8,
                             backgroundColor: Colors.blueGrey.shade50,
-                            valueColor: AlwaysStoppedAnimation(Colors.purple),
+                            valueColor: AlwaysStoppedAnimation(priceRatio > 1
+                                ? Colors.lightGreen
+                                : Colors.lightBlue),
                             value: priceRatio,
                           ),
                         ),
@@ -55,10 +67,10 @@ class GiftSection extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      '₺${Constant.gifts[i]['price']}',
+                      '₺${saveUp[i].price!}',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    Text(Constant.gifts[i]['title']),
+                    Text(saveUp[i].title!),
                   ],
                 ),
               );

@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/constant.dart';
+import '../../model/stopwatch.dart';
+import '../../model/user_view_model.dart';
 import '../health/health_page.dart';
-import 'home_page.dart';
 
-class HealthSection extends StatelessWidget {
+class HealthSection extends ConsumerWidget {
   const HealthSection({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Duration selectedDuration = const Duration(days: 14);
+    final duration = ref.watch(timerProviderMin);
+    final user = ref.watch(userProvider);
     return InkWell(
       onTap: () {
         Navigator.of(context)
@@ -20,7 +25,7 @@ class HealthSection extends StatelessWidget {
         height: 176,
         child: ListView(
           scrollDirection: Axis.horizontal,
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           children: List.generate(
             Constant.healthStatus.length,
             (i) {
@@ -47,7 +52,7 @@ class HealthSection extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(12),
                                   child: LinearProgressIndicator(
                                     minHeight: 12,
-                                    backgroundColor: Colors.pinkAccent[100],
+                                    backgroundColor: Colors.grey,
                                     valueColor: AlwaysStoppedAnimation(
                                         elapsed >= 1
                                             ? Colors.green

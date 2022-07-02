@@ -3,7 +3,7 @@ import 'package:collection/collection.dart';
 class SaveUp {
   final String? title;
   final String? note;
-  final int? price;
+  final double? price;
   final String? link;
   final bool? purchased;
 
@@ -23,7 +23,7 @@ class SaveUp {
   factory SaveUp.fromJson(Map<String, dynamic> json) => SaveUp(
         title: json['title'] as String?,
         note: json['note'] as String?,
-        price: json['price'] as int?,
+        price: json['price'] as double?,
         link: json['link'] as String?,
         purchased: json['purchased'] as bool?,
       );
@@ -39,7 +39,7 @@ class SaveUp {
   SaveUp copyWith({
     String? title,
     String? note,
-    int? price,
+    double? price,
     String? link,
     bool? purchased,
   }) {

@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/constant.dart';
+import '../../model/stopwatch.dart';
+import '../../model/user_view_model.dart';
 import 'home_page.dart';
 
-class ProgressSection extends StatelessWidget {
+class ProgressSection extends ConsumerWidget {
   const ProgressSection({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Duration selectedDuration = const Duration(days: 14);
+    final duration = ref.watch(timerProviderMin);
+    final user = ref.watch(userProvider);
     return Container(
       decoration: BoxDecoration(
           border: Border.all(width: 2), borderRadius: BorderRadius.circular(8)),
@@ -22,115 +28,102 @@ class ProgressSection extends StatelessWidget {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4, mainAxisExtent: 120),
+                  crossAxisCount: 3, mainAxisExtent: 128),
               children: [
-                Column(
-                  children: [
-                    const Icon(
-                      Icons.calendar_month_rounded,
-                      size: 36,
-                      color: Colors.green,
-                    ),
-                    Text("${duration.inDays}",
-                        style: Theme.of(context).textTheme.headline5),
-                    const Text('sigarasız\ngün', textAlign: TextAlign.center)
-                  ],
+                ProgressTile(
+                  icon: Icons.calendar_month_rounded,
+                  value: "${duration.inDays}",
+                  definition: 'sigarasız\ngün',
                 ),
-                Column(
-                  children: [
-                    const Icon(
-                      Icons.smoke_free,
-                      size: 36,
-                      color: Colors.green,
-                    ),
-                    Text((duration.inHours * (20 / 24)).toStringAsFixed(0),
-                        style: Theme.of(context).textTheme.headline5),
-                    const Text('içilmeyen\nsigara', textAlign: TextAlign.center)
-                  ],
+                ProgressTile(
+                  icon: Icons.smoke_free,
+                  value: (duration.inHours * (20 / 24)).toStringAsFixed(0),
+                  definition: 'içilmeyen\nsigara',
                 ),
-                Column(
-                  children: [
-                    const Icon(
-                      Icons.monetization_on_outlined,
-                      size: 36,
-                      color: Colors.green,
-                    ),
-                    Text(
-                        "₺${(duration.inHours * (30 / 24)).toStringAsFixed(0)}",
-                        style: Theme.of(context).textTheme.headline5),
-                    const Text('kurtarılan\npara', textAlign: TextAlign.center)
-                  ],
+                ProgressTile(
+                  icon: Icons.monetization_on_outlined,
+                  value:
+                      "₺${(duration.inHours * (30 / 24)).toStringAsFixed(0)}",
+                  definition: 'kurtarılan\npara',
                 ),
-                Column(
-                  children: [
-                    const Icon(
-                      Icons.watch_later_outlined,
-                      size: 36,
-                      color: Colors.green,
-                    ),
-                    Text("${(duration.inHours / 12).toStringAsFixed(0)}s",
-                        style: Theme.of(context).textTheme.headline5),
-                    const Text('geri\nkazanıldı', textAlign: TextAlign.center)
-                  ],
+                ProgressTile(
+                  icon: Icons.healing_rounded,
+                  value:
+                      "${Constant.healthStatus.indexWhere((el) => el['duration'] > duration)}/${Constant.healthStatus.length}",
+                  definition: 'health\nrecovery',
                 ),
-                Column(
-                  children: [
-                    const Icon(
-                      Icons.healing_rounded,
-                      size: 36,
-                      color: Colors.blue,
-                    ),
-                    Text(
-                        "${Constant.healthStatus.indexWhere((el) => el['duration'] > duration)}/${Constant.healthStatus.length}",
-                        style: Theme.of(context).textTheme.headline5),
-                    const Text('health\nimprov...', textAlign: TextAlign.center)
-                  ],
+                ProgressTile(
+                  icon: Icons.watch_later_outlined,
+                  value: "${(duration.inHours / 12).toStringAsFixed(0)}s",
+                  definition: 'geri\nkazanıldı',
                 ),
-                Column(
-                  children: [
-                    const Icon(
-                      Icons.smoke_free,
-                      size: 36,
-                      color: Colors.blue,
-                    ),
-                    Text("2", style: Theme.of(context).textTheme.headline5),
-                    const Text('cravings\nresisted',
-                        textAlign: TextAlign.center)
-                  ],
+
+                ProgressTile(
+                  icon: Icons.timelapse_outlined,
+                  value: "${(duration.inDays * 1.66).toStringAsFixed(0)}s",
+                  definition: 'not spent\nsmoking',
                 ),
-                Column(
-                  children: [
-                    const Icon(
-                      Icons.monetization_on_outlined,
-                      size: 36,
-                      color: Colors.blue,
-                    ),
-                    Text(
-                        "₺${(duration.inHours * (30 / 24)).toStringAsFixed(0)}",
-                        style: Theme.of(context).textTheme.headline5),
-                    const Text('save up\nfor smth.',
-                        textAlign: TextAlign.center)
-                  ],
-                ),
+                // Column(
+                //   children: [
+                //     const Icon(
+                //       Icons.smoke_free,
+                //       size: 36,
+                //       color: Colors.blue,
+                //     ),
+                //     Text("2", style: Theme.of(context).textTheme.headline5),
+                //     const Text('cravings\nresisted',
+                //         textAlign: TextAlign.center)
+                //   ],
+                // ),
+                // Column(
+                //   children: [
+                //     const Icon(
+                //       Icons.monetization_on_outlined,
+                //       size: 36,
+                //       color: Colors.blue,
+                //     ),
+                //     Text(
+                //         "₺${(duration.inHours * (30 / 24)).toStringAsFixed(0)}",
+                //         style: Theme.of(context).textTheme.headline5),
+                //     const Text('save up\nfor smth.',
+                //         textAlign: TextAlign.center)
+                //   ],
+                // ),
                 // sigare adedi * 5 dk
-                Column(
-                  children: [
-                    const Icon(
-                      Icons.watch_later_outlined,
-                      size: 36,
-                      color: Colors.blue,
-                    ),
-                    Text("${(duration.inDays * 1.66).toStringAsFixed(0)}s",
-                        style: Theme.of(context).textTheme.headline5),
-                    const Text('not spent\nsmoking',
-                        textAlign: TextAlign.center)
-                  ],
-                )
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class ProgressTile extends StatelessWidget {
+  const ProgressTile(
+      {Key? key,
+      required this.value,
+      required this.definition,
+      required this.icon})
+      : super(key: key);
+  final IconData icon;
+  final String value;
+  final String definition;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Icon(icon, size: 36, color: Colors.grey),
+        Text(
+          value,
+          style: const TextStyle(
+            color: Colors.blue,
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(definition, textAlign: TextAlign.center)
+      ],
     );
   }
 }
