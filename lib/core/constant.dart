@@ -255,9 +255,21 @@ class Constant {
       "image": ''
     },
     {
+      'duration': const Duration(days: 10),
+      "title": "",
+      "body": '200 cigarettes non-smoked',
+      "image": ''
+    },
+    {
       'duration': const Duration(hours: 300),
       "title": "",
       "body": '250 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 15),
+      "title": "",
+      "body": '300 cigarettes non-smoked',
       "image": ''
     },
     {
@@ -273,15 +285,39 @@ class Constant {
       "image": ''
     },
     {
+      'duration': const Duration(hours: 900),
+      "title": "",
+      "body": '750 cigarettes non-smoked',
+      "image": ''
+    },
+    {
       'duration': const Duration(hours: 960),
       "title": "",
       "body": '800 cigarettes non-smoked',
       "image": ''
     },
     {
-      'duration': const Duration(hours: 1200),
+      'duration': const Duration(days: 45),
+      "title": "",
+      "body": '900 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 50),
       "title": "",
       "body": '1000 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 75),
+      "title": "",
+      "body": '1500 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 100),
+      "title": "",
+      "body": '2000 cigarettes non-smoked',
       "image": ''
     },
     //life time
@@ -546,6 +582,12 @@ class Constant {
       'duration': const Duration(days: 64),
       "title": "",
       "body": 'you saved 1920TRY',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 100),
+      "title": "",
+      "body": 'you saved 3000TRY',
       "image": ''
     },
     {
