@@ -16,19 +16,19 @@ class MotivationSection extends StatefulWidget {
 }
 
 class _MotivationSectionState extends State<MotivationSection>
-    with SingleTickerProviderStateMixin {
-  late final TabController _tabController;
+    with TickerProviderStateMixin {
+  TabController? _tabController;
   late final Timer _timer;
 
   @override
-  void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
-    super.didChangeDependencies();
+  void initState() {
+    // TODO: implement initState
+    super.initState();
     _tabController =
         TabController(length: widget.reasonList.length, vsync: this);
     _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
-      _tabController.animateTo(
-        (_tabController.index + 1) % widget.reasonList.length,
+      _tabController!.animateTo(
+        (_tabController!.index + 1) % widget.reasonList.length,
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
       );
@@ -37,8 +37,18 @@ class _MotivationSectionState extends State<MotivationSection>
   }
 
   @override
+  void didUpdateWidget(covariant MotivationSection oldWidget) {
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+    _tabController!.dispose();
+    _tabController = null;
+    _tabController =
+        TabController(length: widget.reasonList.length, vsync: this);
+  }
+
+  @override
   void dispose() {
-    _tabController.dispose();
+    _tabController!.dispose();
     _timer.cancel();
 
     super.dispose();

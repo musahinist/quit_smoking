@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../achievement/achievement_page.dart';
-import '../health/health_page.dart';
 
 import '../../core/constant.dart';
+import '../achievement/achievement_page.dart';
 
 class AchievementSection extends StatelessWidget {
   const AchievementSection({

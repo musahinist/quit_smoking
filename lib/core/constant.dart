@@ -56,7 +56,7 @@ class Constant {
     {
       'duration': Duration(days: 4),
       "title":
-          "4 gün sonra, Solunum yolları fonksiyon görmeye başladığı için sekresyon miktarı artar."
+          "4 gün sonra, Solunum yolları fonksiyonları sekresyon miktarı artar."
     },
     {
       'duration': Duration(days: 5),
@@ -88,23 +88,28 @@ class Constant {
     },
     {
       'duration': Duration(days: 14),
-      "title":
-          "2 hafta sonra, Vücuttaki dolaşım farkedilir derecede düzelir, solunum yolu enfeksiyonu riski azalır"
+      "title": "2 hafta sonra, Vücuttaki dolaşım farkedilir derecede düzelir."
+    },
+    {
+      'duration': Duration(days: 18),
+      "title": "17 gün sonra, Solunum yolları enfeksiyonu riski azalır."
     },
     {
       'duration': Duration(days: 21),
-      "title":
-          "3 hafta sonra, Kan dolaşımı ve cilt neminde iyileşmeler; erken ortaya çıkan kırışıklıkların kaybolması"
+      "title": "3 hafta sonra, Kan dolaşımı ile cilt neminde iyileşmeler başlar"
     },
     {
       'duration': Duration(days: 25),
       "title":
-          "25 gün sonra, Canınızın çekmesi ortlama olarak 2 sefere kadar düşecektir."
+          "25 gün sonra, Canınızın çekmesi günde 2 sefere kadar düşecektir."
     },
     {
       'duration': Duration(days: 30),
-      "title":
-          "1 ay sonra, Fiziksel kondisyon gelişir, yürürken yorulma ve tıkanma daha az görülür."
+      "title": "1 ay sonra, Fiziksel kondisyon farkedilir derecede gelişir."
+    },
+    {
+      'duration': Duration(days: 35),
+      "title": "35 gün sonra, Erken ortaya çıkan kırışıklıkların kaybolması"
     },
     {
       'duration': Duration(days: 40),
@@ -112,19 +117,36 @@ class Constant {
           "40 gün sonra, Your gums and teeth should be similar to that of a non-smoker."
     },
     {
+      'duration': Duration(days: 45),
+      "title": "1,5 ay sonra,  Canınızın çekmesi  1 sefere kadar düşecektir."
+    },
+    {
       'duration': Duration(days: 50),
       "title":
-          "50 gün sonra, Bırakma sebepli kızgınlık, endişe, huysuzluk ve depresyon belirtileri tamamen kaybolur."
+          "50 gün sonra, Bırakma sebepli kızgınlık ve depresyon belirtileri kaybolur."
+    },
+    {
+      'duration': Duration(days: 55),
+      "title": "55 gün sonra, Yürürken yorulma ve tıkanmalar daha az görülür."
     },
     {
       'duration': Duration(days: 60),
-      "title":
-          "2 ay sonra, , Akciğer fonksiyonları yüzde 5-10 oranında artar.buna bağlı olarak enerji düzeyi artar."
+      "title": "2 ay sonra, , Akciğer fonksiyonları yüzde 5-10 oranında artar."
     },
     {
-      'duration': Duration(days: 75),
+      'duration': Duration(days: 65),
       "title":
-          "2,5 ay sonra, Bir miktar kilo (2,7kg~5.95lbs) alma ihtimalinize ragmen insulin direnci normal seviyeye iner."
+          "65 gün sonra, Bir miktar kilo (2,7kg~5.95lbs) alınabilir. Panik yok!"
+    },
+    {
+      'duration': Duration(days: 70),
+      "title":
+          "70 gün sonra, Enerji düzeyiniz farkedilir derecede  artmış olur."
+    },
+    {
+      'duration': Duration(days: 80),
+      "title":
+          "80 gün sonra, Canınızın çekmesi haftada bir kaç kereye kadar düşecektir."
     },
     {
       'duration': Duration(days: 90),
@@ -133,18 +155,27 @@ class Constant {
     },
     {
       'duration': Duration(days: 100),
+      "title": "100 gün sonra, Herşey daha kolay olacaktır👍🎉. Dikkatli ol."
+    },
+    {
+      'duration': Duration(days: 110),
       "title":
-          "100 gün sonra, Canınızın çekmesi haftada bir kaç kereye kadar düşecek ve daha kolay yönetilir olacaktır."
+          "110 gün sonra, Aldığınız kiloya ragmen insulin direnci normal seviyeye iner."
     },
     {
       'duration': Duration(days: 120),
       "title":
-          "4 ay sonra, , Dolaşımınız hızlanır ve akciğer fonksiyonlarınız 20% ye kadar artar."
+          "4 ay sonra, , Dolaşımınız hızlanır ve akciğer fonksiyonları 20% ye kadar artar."
+    },
+    {
+      'duration': Duration(days: 150),
+      "title":
+          "5 ay sonra, Alınan kiloları vermek için yeterli moral ve enerjiye sahip olunur :)"
     },
     {
       'duration': Duration(days: 180),
       "title":
-          "6 ay sonra,  Wheezing(hırıltılı ya da ıslık sesli soluk alıp verme) gibi solunum yolu problemleri düzelir."
+          "6 ay sonra,  Wheezing(hırıltı) gibi solunum yolu problemleri düzelir."
     },
     {
       'duration': Duration(days: 365),
@@ -170,199 +201,369 @@ class Constant {
           "5 yıl sonra, Akciğer kanserine yakalanma riskinin hiç sigara içmemiş biriyle aynı olması."
     },
     {
+      'duration': Duration(days: 365 * 7),
+      "title": "7 yıl sonra, KOAH riski 50% nin altına düşer."
+    },
+    {
       'duration': Duration(days: 365 * 10),
       "title":
           "10 yıl sonra, kalp krizi geçirme riski hiç içmeyenlerle aynı seviyeye iner"
     },
   ];
 
-  static const List<Map<String, dynamic>> achievements = [
+  static List<Map<String, dynamic>> get achievements =>
+      achievementList..sort((a, b) => a['duration'].compareTo(b['duration']));
+
+  static List<Map<String, dynamic>> achievementList = [
+    //cigarettes
+    ///////////////////
     //24/20*5=6hours
     {
-      'duration': Duration(hours: 6),
+      'duration': const Duration(hours: 6),
       "title": "",
       "body": '5 cigarettes non-smoked',
       "image": ''
     },
-    // 12 hours =60 minutes lifetime
     {
-      'duration': Duration(hours: 12),
-      "title": "",
-      "body": 'you won 60 minutes of life',
-      "image": ''
-    },
-    {
-      'duration': Duration(hours: 12),
+      'duration': const Duration(hours: 12),
       "title": "",
       "body": '10 cigarettes non-smoked',
       "image": ''
     },
     {
-      'duration': Duration(hours: 18),
+      'duration': const Duration(hours: 18),
       "title": "",
       "body": '15 cigarettes non-smoked',
       "image": ''
     },
     {
-      'duration': Duration(hours: 24),
-      "title": "",
-      "body": 'No smoking for 1 day',
-      "image": ''
-    },
-    {
-      'duration': Duration(hours: 24),
+      'duration': const Duration(hours: 24),
       "title": "",
       "body": '20 cigarettes non-smoked',
       "image": ''
     },
     {
-      'duration': Duration(hours: 48),
-      "title": "",
-      "body": 'No smoking for 2 day',
-      "image": ''
-    },
-    {
-      'duration': Duration(hours: 60),
+      'duration': const Duration(hours: 60),
       "title": "",
       "body": '50 cigarettes non-smoked',
       "image": ''
     },
     {
-      'duration': Duration(days: 3),
-      "title": "",
-      "body": 'No smoking for 3 day',
-      "image": ''
-    },
-    {
-      'duration': Duration(days: 4),
-      "title": "",
-      "body": 'you saved 100TRY',
-      "image": ''
-    },
-    {
-      'duration': Duration(hours: 100),
-      "title": "",
-      "body": 'No smoking for 100 hours',
-      "image": ''
-    },
-    {
-      'duration': Duration(days: 5),
-      "title": "",
-      "body": 'No smoking for 5 day',
-      "image": ''
-    },
-    {
-      'duration': Duration(hours: 120),
+      'duration': const Duration(hours: 120),
       "title": "",
       "body": '100 cigarettes non-smoked',
       "image": ''
     },
     {
-      'duration': Duration(days: 6),
-      "title": "",
-      "body": 'No smoking for 6 day',
-      "image": ''
-    },
-    {
-      'duration': Duration(days: 6),
-      "title": "",
-      "body": 'you won 12 hours lifetime',
-      "image": ''
-    },
-    {
-      'duration': Duration(days: 7),
-      "title": "",
-      "body": 'No smoking for 1 week',
-      "image": ''
-    },
-    {
-      'duration': Duration(days: 10),
-      "title": "",
-      "body": 'No smoking for 10 days',
-      "image": ''
-    },
-    {
-      'duration': Duration(hours: 250),
-      "title": "",
-      "body": 'No smoking for 250 hours',
-      "image": ''
-    },
-    {
-      'duration': Duration(days: 12),
-      "title": "",
-      "body": 'you won 1 day lifetime',
-      "image": ''
-    },
-    {
-      'duration': Duration(hours: 300),
+      'duration': const Duration(hours: 300),
       "title": "",
       "body": '250 cigarettes non-smoked',
       "image": ''
     },
     {
-      'duration': Duration(days: 14),
+      'duration': const Duration(hours: 480),
       "title": "",
-      "body": 'No smoking for 2 weeks',
+      "body": '400 cigarettes non-smoked',
       "image": ''
     },
     {
-      'duration': Duration(days: 21),
-      "title": "",
-      "body": 'No smoking for 3 weeks',
-      "image": ''
-    },
-    {
-      'duration': Duration(hours: 600),
+      'duration': const Duration(hours: 600),
       "title": "",
       "body": '500 cigarettes non-smoked',
       "image": ''
     },
     {
-      'duration': Duration(days: 30),
+      'duration': const Duration(hours: 960),
+      "title": "",
+      "body": '800 cigarettes non-smoked',
+      "image": ''
+    },
+    {
+      'duration': const Duration(hours: 1200),
+      "title": "",
+      "body": '1000 cigarettes non-smoked',
+      "image": ''
+    },
+    //life time
+    ///////////////////
+    // 12 hours =60 minutes lifetime
+    {
+      'duration': const Duration(hours: 12),
+      "title": "",
+      "body": 'you won 60 minutes of life',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 6),
+      "title": "",
+      "body": 'you won 12 hours lifetime',
+      "image": ''
+    },
+
+    {
+      'duration': const Duration(days: 12),
+      "title": "",
+      "body": 'you won 1 day lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 12 * 2),
+      "title": "",
+      "body": 'you won 2 day lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 25),
+      "title": "",
+      "body": 'you won 50 saat lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 12 * 3),
+      "title": "",
+      "body": 'you won 3 day lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 12 * 4),
+      "title": "",
+      "body": 'you won 4 day lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 25 * 2),
+      "title": "",
+      "body": 'you won 100 saat lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 12 * 5),
+      "title": "",
+      "body": 'you won 5 day lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 12 * 6),
+      "title": "",
+      "body": 'you won 6 day lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 12 * 7),
+      "title": "",
+      "body": 'you won 1 week lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 25 * 4),
+      "title": "",
+      "body": 'you won 200 saat lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 12 * 10),
+      "title": "",
+      "body": 'you won 10 day lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 25 * 5),
+      "title": "",
+      "body": 'you won 250 saat lifetime',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 25 * 10),
+      "title": "",
+      "body": 'you won 500 saat lifetime',
+      "image": ''
+    },
+    // no smoking time
+    ///////////////////
+
+    {
+      'duration': const Duration(hours: 24),
+      "title": "",
+      "body": 'No smoking for 1 day',
+      "image": ''
+    },
+
+    {
+      'duration': const Duration(hours: 48),
+      "title": "",
+      "body": 'No smoking for 2 day',
+      "image": ''
+    },
+
+    {
+      'duration': const Duration(days: 3),
+      "title": "",
+      "body": 'No smoking for 3 day',
+      "image": ''
+    },
+    {
+      'duration': const Duration(hours: 100),
+      "title": "",
+      "body": 'No smoking for 100 hours',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 5),
+      "title": "",
+      "body": 'No smoking for 5 day',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 6),
+      "title": "",
+      "body": 'No smoking for 6 day',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 7),
+      "title": "",
+      "body": 'No smoking for 1 week',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 10),
+      "title": "",
+      "body": 'No smoking for 10 days',
+      "image": ''
+    },
+    {
+      'duration': const Duration(hours: 250),
+      "title": "",
+      "body": 'No smoking for 250 hours',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 14),
+      "title": "",
+      "body": 'No smoking for 2 weeks',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 21),
+      "title": "",
+      "body": 'No smoking for 3 weeks',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 30),
       "title": "",
       "body": 'No smoking for 1 months',
       "image": ''
     },
     {
-      'duration': Duration(hours: 1200),
-      "title": "",
-      "body": '1000 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': Duration(days: 50),
+      'duration': const Duration(days: 50),
       "title": "",
       "body": 'No smoking for 50 days',
       "image": ''
     },
     {
-      'duration': Duration(days: 100),
+      'duration': const Duration(days: 60),
+      "title": "",
+      "body": 'No smoking for 2 months',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 90),
+      "title": "",
+      "body": 'No smoking for 3 months',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 100),
       "title": "",
       "body": 'No smoking for 100 days',
       "image": ''
     },
     {
-      'duration': Duration(days: 120),
+      'duration': const Duration(days: 120),
       "title": "",
       "body": 'No smoking for 4 months',
       "image": ''
     },
     {
-      'duration': Duration(days: 150),
+      'duration': const Duration(days: 150),
       "title": "",
-      "body": 'No smoking for 150 days',
+      "body": 'No smoking for 5 months',
       "image": ''
     },
     {
-      'duration': Duration(days: 180),
+      'duration': const Duration(days: 180),
       "title": "",
       "body": 'No smoking for 6 months',
       "image": ''
     },
     {
-      'duration': Duration(days: 200),
+      'duration': const Duration(days: 200),
       "title": "",
       "body": 'No smoking for 200 days',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 240),
+      "title": "",
+      "body": 'No smoking for 8 months',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 250),
+      "title": "",
+      "body": 'No smoking for 250 days',
+      "image": ''
+    },
+
+    /// save up money
+    /// ////////
+    {
+      'duration': const Duration(days: 4),
+      "title": "",
+      "body": 'you saved 120TRY',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 8),
+      "title": "",
+      "body": 'you saved 240TRY',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 16),
+      "title": "",
+      "body": 'you saved 480TRY',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 32),
+      "title": "",
+      "body": 'you saved 960TRY',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 64),
+      "title": "",
+      "body": 'you saved 1920TRY',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 128),
+      "title": "",
+      "body": 'you saved 3840TRY',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 256),
+      "title": "",
+      "body": 'you saved 7680TRY',
+      "image": ''
+    },
+    {
+      'duration': const Duration(days: 512),
+      "title": "",
+      "body": 'you saved 15360TRY',
       "image": ''
     },
   ];
