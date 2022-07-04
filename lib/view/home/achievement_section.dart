@@ -54,8 +54,8 @@ class AchievementSection extends StatelessWidget {
                                             : Colors.green),
                                     value: elapsed,
                                   ),
-                                  Text(
-                                      '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}')
+                                  Text((elapsed.clamp(0, 1) * 100)
+                                      .toStringAsFixed(0))
                                 ],
                               )),
                           const Icon(

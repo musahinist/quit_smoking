@@ -103,18 +103,25 @@ class ProgressPage extends ConsumerWidget {
           ),
         ),
         const TitleWidget(
-            title: 'Cigarettes avoided', icon: Icons.table_chart_outlined),
-        const TimePeriodTable(amountPerDay: 20, unit: ''),
+          title: 'Cigarettes avoided',
+          icon: Icons.table_chart_outlined,
+        ),
+        const TimePeriodTable(amountPerDay: 20, unit: ' pcs', prefix: false),
         const TitleWidget(
-            title: 'Money Saved', icon: Icons.table_chart_outlined),
-        const TimePeriodTable(amountPerDay: 30, unit: '₺ '),
+          title: 'Money Saved',
+          icon: Icons.table_chart_outlined,
+        ),
+        const TimePeriodTable(amountPerDay: 30, unit: '₺', prefix: true),
         const TitleWidget(
-            title: 'Lifetime won back', icon: Icons.table_chart_outlined),
-        const TimePeriodTable(amountPerDay: 2, unit: ' hours', prefix: false),
+          title: 'Lifetime won back',
+          icon: Icons.table_chart_outlined,
+        ),
+        const TimePeriodTable(amountPerDay: 2, unit: ' h', prefix: false),
         const TitleWidget(
-            title: 'Time not wasted for smoking',
-            icon: Icons.table_chart_outlined),
-        const TimePeriodTable(amountPerDay: 1, unit: ' hours', prefix: false),
+          title: 'Time not wasted for smoking',
+          icon: Icons.table_chart_outlined,
+        ),
+        const TimePeriodTable(amountPerDay: 1, unit: ' h', prefix: false),
       ]),
     );
   }
@@ -136,34 +143,48 @@ class TimePeriodTable extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(width: 2), borderRadius: BorderRadius.circular(8)),
-      child: Column(
-        children: [
-          ListTile(
-            title: const Text('Per day'),
-            trailing:
-                TextUnit(unit: unit, amount: amountPerDay * 1, prefix: prefix),
-          ),
-          ListTile(
-            title: const Text('Per week'),
-            trailing:
-                TextUnit(unit: unit, amount: amountPerDay * 7, prefix: prefix),
-          ),
-          ListTile(
-            title: const Text('Per month'),
-            trailing:
-                TextUnit(unit: unit, amount: amountPerDay * 30, prefix: prefix),
-          ),
-          ListTile(
-            title: const Text('Per year'),
-            trailing: TextUnit(
-                unit: unit, amount: amountPerDay * 365, prefix: prefix),
-          ),
-          ListTile(
-            title: const Text('Per decate'),
-            trailing: TextUnit(
-                unit: unit, amount: amountPerDay * 365 * 10, prefix: prefix),
-          )
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Per day'),
+                TextUnit(unit: unit, amount: amountPerDay * 1, prefix: prefix)
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Per week'),
+                TextUnit(unit: unit, amount: amountPerDay * 7, prefix: prefix)
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Per month'),
+                TextUnit(unit: unit, amount: amountPerDay * 30, prefix: prefix)
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Per year'),
+                TextUnit(unit: unit, amount: amountPerDay * 365, prefix: prefix)
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Per decate'),
+                TextUnit(
+                    unit: unit, amount: amountPerDay * 3650, prefix: prefix)
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

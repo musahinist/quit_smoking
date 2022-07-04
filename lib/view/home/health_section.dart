@@ -20,7 +20,7 @@ class HealthSection extends ConsumerWidget {
             .push(MaterialPageRoute(builder: (_) => const HealthPage()));
       },
       child: SizedBox(
-        height: 176,
+        height: 152,
         child: ListView(
           scrollDirection: Axis.horizontal,
           physics: const BouncingScrollPhysics(),
@@ -62,7 +62,7 @@ class HealthSection extends ConsumerWidget {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                    '${elapsed > 1 ? 100 : (elapsed * 100).toStringAsFixed(0)}%'),
+                                    '${(elapsed.clamp(0, 1) * 100).toStringAsFixed(0)}%'),
                               )
                             ],
                           ),

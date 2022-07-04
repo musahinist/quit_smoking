@@ -13,6 +13,8 @@ class ArcChartSection extends ConsumerWidget {
     // Duration selectedDuration = const Duration(days: 14);
     final duration = ref.watch(timerProviderMin);
     final user = ref.watch(userProvider);
+    final double timeRatio =
+        duration.inMinutes / ((user.challengeDurationInhours ?? 24) * 60);
     return Container(
       decoration: BoxDecoration(
           border: Border.all(width: 2), borderRadius: BorderRadius.circular(8)),
@@ -71,12 +73,24 @@ class ArcChartSection extends ConsumerWidget {
                       child: Text('3 Hafta'),
                     ),
                     const PopupMenuItem<Duration>(
+                      value: Duration(days: 25),
+                      child: Text('25 Gün'),
+                    ),
+                    const PopupMenuItem<Duration>(
                       value: Duration(days: 30),
                       child: Text('1 Ay'),
                     ),
                     const PopupMenuItem<Duration>(
+                      value: Duration(days: 45),
+                      child: Text('45 Gün'),
+                    ),
+                    const PopupMenuItem<Duration>(
                       value: Duration(days: 60),
                       child: Text('2 Ay'),
+                    ),
+                    const PopupMenuItem<Duration>(
+                      value: Duration(days: 80),
+                      child: Text('80 Gün'),
                     ),
                     const PopupMenuItem<Duration>(
                       value: Duration(days: 100),
@@ -118,17 +132,19 @@ class ArcChartSection extends ConsumerWidget {
                 children: [
                   CustomPaint(
                     painter: SemiCircleChart(
-                        duration.inMinutes /
-                            ((user.challengeDurationInhours ?? 24) * 60),
+                        timeRatio,
                         80,
-                        Colors.blue),
+                        timeRatio * 100 >= 100
+                            ? Colors.lightGreen
+                            : Colors.lightBlue),
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '${(duration.inMinutes * 100 / ((user.challengeDurationInhours ?? 24) * 60)).clamp(0, 100).toStringAsFixed(1)}',
-                        textScaleFactor: 3,
+                        (timeRatio.clamp(0, 1) * 100).toStringAsFixed(1),
+                        style: const TextStyle(
+                            fontSize: 40, fontWeight: FontWeight.bold),
                       ),
                       const Text('%'),
                     ],

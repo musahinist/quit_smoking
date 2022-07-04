@@ -6,7 +6,7 @@ import 'user.dart';
 User mockUser = const User(
   name: 'mshn',
   email: 'sahinmusa@gmail.com',
-  profilePhoto: '',
+  // profilePhoto: '',
   bio: 'about me my bio',
   location: 'Turkey',
   quitDate: '2022-06-21T18:00:00.000',

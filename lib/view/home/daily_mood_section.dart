@@ -26,12 +26,12 @@ class _DailyMoodSectionState extends State<DailyMoodSection> {
     {'interval': "16:00\n20:00", "color": Colors.white},
     {'interval': "20:00\n24:00", "color": Colors.white}
   ];
-  double moodVal = 5;
+  double moodVal = 3;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    gradient = LinearGradient(colors: colors);
+    gradient = LinearGradient(colors: colors.take(3).toList());
   }
 
   setStatus(int i, int j) {
@@ -100,7 +100,7 @@ class _DailyMoodSectionState extends State<DailyMoodSection> {
                                   child: Slider(
                                     value: moodVal,
                                     activeColor: Colors.grey,
-                                    thumbColor: Colors.blue,
+                                    thumbColor: colors[moodVal.toInt() - 1],
                                     divisions: 4,
                                     min: 1,
                                     max: 5,
@@ -147,9 +147,16 @@ class _DailyMoodSectionState extends State<DailyMoodSection> {
               },
               child: Container(
                 height: 56,
-                color: dailyStatus[i]['color'],
+                // color: dailyStatus[i]['color'],
                 alignment: Alignment.center,
                 child: Text(dailyStatus[i]['interval']),
+
+                decoration: BoxDecoration(
+                    border: Border(
+                        bottom: BorderSide(
+                  width: 12,
+                  color: dailyStatus[i]['color'],
+                ))),
               ),
             ),
           );

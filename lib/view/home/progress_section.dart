@@ -120,11 +120,11 @@ class ProgressTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Icon(icon, size: 36, color: Colors.grey),
+        Icon(icon, size: 36, color: Colors.lightGreen),
         Text(
           value,
           style: const TextStyle(
-            color: Colors.blue,
+            color: Colors.lightBlue,
             fontSize: 28,
             fontWeight: FontWeight.bold,
           ),
