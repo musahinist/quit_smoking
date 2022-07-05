@@ -50,11 +50,11 @@ class HealthSection extends ConsumerWidget {
                                   borderRadius: BorderRadius.circular(12),
                                   child: LinearProgressIndicator(
                                     minHeight: 12,
-                                    backgroundColor: Colors.grey,
+                                    backgroundColor: Colors.grey[200],
                                     valueColor: AlwaysStoppedAnimation(
                                         elapsed >= 1
-                                            ? Colors.green
-                                            : Colors.blue),
+                                            ? Colors.lightGreen
+                                            : Colors.lightBlue),
                                     value: elapsed,
                                   ),
                                 ),

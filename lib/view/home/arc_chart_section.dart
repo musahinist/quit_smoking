@@ -144,7 +144,9 @@ class ArcChartSection extends ConsumerWidget {
                       Text(
                         (timeRatio.clamp(0, 1) * 100).toStringAsFixed(1),
                         style: const TextStyle(
-                            fontSize: 40, fontWeight: FontWeight.bold),
+                            color: Colors.lightGreen,
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold),
                       ),
                       const Text('%'),
                     ],
@@ -184,7 +186,7 @@ class SemiCircleChart extends CustomPainter {
       ..strokeCap = StrokeCap.round;
 
     drawArc(canvas, paint, 1);
-    paint.color = Colors.white;
+    paint.color = Colors.grey[200]!;
     paint.strokeWidth = 20;
     drawArc(canvas, paint, 1);
     paint.color = color;

@@ -50,8 +50,9 @@ class AchievementPage extends StatelessWidget {
                               alignment: Alignment.center,
                               children: [
                                 CircularProgressIndicator(
-                                  valueColor:
-                                      const AlwaysStoppedAnimation(Colors.blue),
+                                  backgroundColor: Colors.grey[200],
+                                  valueColor: const AlwaysStoppedAnimation(
+                                      Colors.lightBlue),
                                   value: elapsed,
                                 ),
                                 Text(
@@ -60,8 +61,8 @@ class AchievementPage extends StatelessWidget {
                             )
                           : const Icon(
                               Icons.check_circle,
-                              size: 48,
-                              color: Colors.green,
+                              size: 44,
+                              color: Colors.lightGreen,
                             ),
                     ),
                     const Icon(

@@ -21,10 +21,10 @@ class _DailyMoodSectionState extends State<DailyMoodSection> {
   ];
   late LinearGradient gradient;
   List<Map<String, dynamic>> dailyStatus = [
-    {'interval': "08:00\n12:00", "color": Colors.white},
-    {'interval': "12:00\n16:00", "color": Colors.white},
-    {'interval': "16:00\n20:00", "color": Colors.white},
-    {'interval': "20:00\n24:00", "color": Colors.white}
+    {'interval': "08:00\n12:00", "color": Colors.grey[200]},
+    {'interval': "12:00\n16:00", "color": Colors.grey[200]},
+    {'interval': "16:00\n20:00", "color": Colors.grey[200]},
+    {'interval': "20:00\n24:00", "color": Colors.grey[200]}
   ];
   double moodVal = 3;
   @override
@@ -154,7 +154,7 @@ class _DailyMoodSectionState extends State<DailyMoodSection> {
                 decoration: BoxDecoration(
                     border: Border(
                         bottom: BorderSide(
-                  width: 12,
+                  width: 8,
                   color: dailyStatus[i]['color'],
                 ))),
               ),

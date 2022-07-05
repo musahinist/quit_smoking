@@ -48,10 +48,11 @@ class AchievementSection extends StatelessWidget {
                                 alignment: Alignment.center,
                                 children: [
                                   CircularProgressIndicator(
+                                    backgroundColor: Colors.grey[200],
                                     valueColor: AlwaysStoppedAnimation(
-                                        elapsed < 1
-                                            ? Colors.blue
-                                            : Colors.green),
+                                        elapsed > 1
+                                            ? Colors.lightGreen
+                                            : Colors.lightBlue),
                                     value: elapsed,
                                   ),
                                   Text((elapsed.clamp(0, 1) * 100)

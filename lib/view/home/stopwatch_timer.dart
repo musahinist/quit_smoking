@@ -16,7 +16,7 @@ class StopWatchTimer extends ConsumerWidget {
           children: [
             Text("${duration.inDays}",
                 style: Theme.of(context).textTheme.headline3!.copyWith(
-                    color: Colors.lightGreen, fontWeight: FontWeight.bold)),
+                    color: Colors.lightBlue, fontWeight: FontWeight.bold)),
             const Text('days')
           ],
         ),
