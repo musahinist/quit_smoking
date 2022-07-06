@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quit_smoking/view/mood/mood.page.dart';
 
 import '../../model/user_view_model.dart';
 import '../more/more_page.dart';
@@ -53,7 +54,12 @@ class HomePage extends StatelessWidget {
             children: [
               const ArcChartSection(),
               //
-              const TitleWidget(title: "Daily Mood"),
+              TitleWidget(
+                  title: "Daily Mood",
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const MoodPage()));
+                  }),
               const DailyMoodSection(),
               //
               const TitleWidget(title: "Progress"),

@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 class TitleWidget extends StatelessWidget {
   const TitleWidget(
-      {Key? key, required this.title, this.icon = Icons.arrow_forward_ios})
+      {Key? key,
+      required this.title,
+      this.icon = Icons.arrow_forward_ios,
+      this.onTap})
       : super(key: key);
   final String title;
   final IconData icon;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,7 @@ class TitleWidget extends StatelessWidget {
             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: onTap,
             icon: Icon(icon, size: 16),
           )
         ],

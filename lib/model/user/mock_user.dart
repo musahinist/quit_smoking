@@ -16,7 +16,7 @@ User mockUser = const User(
   cigaretteAmountInPack: 20,
   smokingYears: 25,
   termsAndPolicyOk: false,
-  challengeDurationInhours: 24 * 14,
+  challengeDurationInhours: 24 * 21,
   saveUpForSmth: 300,
   prefereces: Prefereces(
     language: 'tr',
