@@ -262,395 +262,78 @@ class Constant {
     //cigarettes
     ///////////////////
     //24/20*5=6hours
-    {
-      'duration': const Duration(hours: 6),
-      "title": "",
-      "body": '5 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 12),
-      "title": "",
-      "body": '10 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 18),
-      "title": "",
-      "body": '15 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 24),
-      "title": "",
-      "body": '20 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 60),
-      "title": "",
-      "body": '50 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 120),
-      "title": "",
-      "body": '100 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 10),
-      "title": "",
-      "body": '200 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 300),
-      "title": "",
-      "body": '250 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 15),
-      "title": "",
-      "body": '300 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 480),
-      "title": "",
-      "body": '400 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 600),
-      "title": "",
-      "body": '500 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 900),
-      "title": "",
-      "body": '750 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 960),
-      "title": "",
-      "body": '800 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 45),
-      "title": "",
-      "body": '900 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 50),
-      "title": "",
-      "body": '1000 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 75),
-      "title": "",
-      "body": '1500 cigarettes non-smoked',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 100),
-      "title": "",
-      "body": '2000 cigarettes non-smoked',
-      "image": ''
-    },
+    for (int i = 1; i < 10; i++)
+      {
+        'duration': Duration(hours: 6 * i),
+        "title": "",
+        "body": '${5 * i} cigarettes non-smoked',
+        "image": ''
+      },
+    for (int i = 1; i < 10; i++)
+      {
+        'duration': Duration(hours: 60 * i),
+        "title": "",
+        "body": '${50 * i} cigarettes non-smoked',
+        "image": ''
+      },
+    for (int i = 1; i < 10; i++)
+      {
+        'duration': Duration(hours: 600 * i),
+        "title": "",
+        "body": '${500 * i} cigarettes non-smoked',
+        "image": ''
+      },
+
     //life time
     ///////////////////
     // 12 hours =60 minutes lifetime
-    {
-      'duration': const Duration(hours: 12),
-      "title": "",
-      "body": 'you won 60 minutes of life',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 6),
-      "title": "",
-      "body": 'you won 12 hours lifetime',
-      "image": ''
-    },
+    for (int i = 1; i < 24; i++)
+      {
+        'duration': Duration(hours: 12 * i),
+        "title": "",
+        "body": 'you won ${1 * i} hours of life',
+        "image": ''
+      },
+    for (int i = 1; i < 30; i++)
+      {
+        'duration': Duration(days: 12 * i),
+        "title": "",
+        "body": 'you won ${1 * i} days of life',
+        "image": ''
+      },
 
-    {
-      'duration': const Duration(days: 12),
-      "title": "",
-      "body": 'you won 1 day lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 12 * 2),
-      "title": "",
-      "body": 'you won 2 day lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 25),
-      "title": "",
-      "body": 'you won 50 saat lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 12 * 3),
-      "title": "",
-      "body": 'you won 3 day lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 12 * 4),
-      "title": "",
-      "body": 'you won 4 day lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 25 * 2),
-      "title": "",
-      "body": 'you won 100 saat lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 12 * 5),
-      "title": "",
-      "body": 'you won 5 day lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 12 * 6),
-      "title": "",
-      "body": 'you won 6 day lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 12 * 7),
-      "title": "",
-      "body": 'you won 1 week lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 25 * 4),
-      "title": "",
-      "body": 'you won 200 saat lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 12 * 10),
-      "title": "",
-      "body": 'you won 10 day lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 25 * 5),
-      "title": "",
-      "body": 'you won 250 saat lifetime',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 25 * 10),
-      "title": "",
-      "body": 'you won 500 saat lifetime',
-      "image": ''
-    },
     // no smoking time
     ///////////////////
-
-    {
-      'duration': const Duration(hours: 24),
-      "title": "",
-      "body": 'No smoking for 1 day',
-      "image": ''
-    },
-
-    {
-      'duration': const Duration(hours: 48),
-      "title": "",
-      "body": 'No smoking for 2 day',
-      "image": ''
-    },
-
-    {
-      'duration': const Duration(days: 3),
-      "title": "",
-      "body": 'No smoking for 3 day',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 100),
-      "title": "",
-      "body": 'No smoking for 100 hours',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 5),
-      "title": "",
-      "body": 'No smoking for 5 day',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 6),
-      "title": "",
-      "body": 'No smoking for 6 day',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 7),
-      "title": "",
-      "body": 'No smoking for 1 week',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 10),
-      "title": "",
-      "body": 'No smoking for 10 days',
-      "image": ''
-    },
-    {
-      'duration': const Duration(hours: 250),
-      "title": "",
-      "body": 'No smoking for 250 hours',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 14),
-      "title": "",
-      "body": 'No smoking for 2 weeks',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 21),
-      "title": "",
-      "body": 'No smoking for 3 weeks',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 30),
-      "title": "",
-      "body": 'No smoking for 1 months',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 50),
-      "title": "",
-      "body": 'No smoking for 50 days',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 60),
-      "title": "",
-      "body": 'No smoking for 2 months',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 90),
-      "title": "",
-      "body": 'No smoking for 3 months',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 100),
-      "title": "",
-      "body": 'No smoking for 100 days',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 120),
-      "title": "",
-      "body": 'No smoking for 4 months',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 150),
-      "title": "",
-      "body": 'No smoking for 5 months',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 180),
-      "title": "",
-      "body": 'No smoking for 6 months',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 200),
-      "title": "",
-      "body": 'No smoking for 200 days',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 240),
-      "title": "",
-      "body": 'No smoking for 8 months',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 250),
-      "title": "",
-      "body": 'No smoking for 250 days',
-      "image": ''
-    },
+    for (int i = 1; i < 7; i++)
+      {
+        'duration': Duration(days: i),
+        "title": "",
+        "body": 'No smoking for $i days',
+        "image": ''
+      },
+    for (int i = 1; i < 30; i++)
+      {
+        'duration': Duration(days: 7 * i),
+        "title": "",
+        "body": 'No smoking for $i weeks',
+        "image": ''
+      },
 
     /// save up money
     /// ////////
-    {
-      'duration': const Duration(days: 4),
-      "title": "",
-      "body": 'you saved 120TRY',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 8),
-      "title": "",
-      "body": 'you saved 240TRY',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 16),
-      "title": "",
-      "body": 'you saved 480TRY',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 32),
-      "title": "",
-      "body": 'you saved 960TRY',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 64),
-      "title": "",
-      "body": 'you saved 1920TRY',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 100),
-      "title": "",
-      "body": 'you saved 3000TRY',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 128),
-      "title": "",
-      "body": 'you saved 3840TRY',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 256),
-      "title": "",
-      "body": 'you saved 7680TRY',
-      "image": ''
-    },
-    {
-      'duration': const Duration(days: 512),
-      "title": "",
-      "body": 'you saved 15360TRY',
-      "image": ''
-    },
+    for (int i = 1; i < 10; i++)
+      {
+        'duration': Duration(days: 4 * i),
+        "title": "",
+        "body": 'you saved ${120 * i}TRY',
+        "image": ''
+      },
+    for (int i = 1; i < 10; i++)
+      {
+        'duration': Duration(days: 40 * i),
+        "title": "",
+        "body": 'you saved ${1200 * i}TRY',
+        "image": ''
+      },
   ];
 }
