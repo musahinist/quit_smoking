@@ -4,6 +4,7 @@
     "profile_photo": "",
     "bio": "",
     "location": "",
+    "first_setup":true,
     "quit_date": "2022-06-21T18:00:00.000",
     "daily_cigarette_count": 20,
     "cigarette_price_in_pack": 25,
