@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:quit_smoking/model/user/save_up.dart';
+import '../../model/user/save_up.dart';
 import '../../core/widget/util/show_overlay.dart';
 
 import '../../model/stopwatch.dart';

@@ -49,6 +49,7 @@ class _DateFormFieldState extends State<DateFormField> {
       decoration: InputDecoration(
         label: Text(widget.label),
         hintText: "MM/dd/yyyy HH:mm",
+        border: const OutlineInputBorder(),
         suffixIcon: IconButton(
           icon: const Icon(Icons.calendar_month),
           onPressed: () async {
