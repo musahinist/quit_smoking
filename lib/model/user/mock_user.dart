@@ -12,7 +12,7 @@ User mockUser = const User(
   quitDate: '2022-06-21T18:00:00.000',
   dailyCigaretteCount: 20,
   cigarettePrice: 30,
-  currency: 'TRY',
+  // currency: 'TRY',
   cigaretteAmountInPack: 20,
   smokingYears: 25,
   termsAndPolicyOk: false,

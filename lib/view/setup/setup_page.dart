@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/widget/ui/form/date_form_field.dart';
-import '../../model/user/mock_user.dart';
 import 'package:currency_picker/currency_picker.dart';
 
 import '../../model/user/user.dart';
 import '../../model/user_view_model.dart';
 
-class SetupPage extends ConsumerStatefulWidget {
+class SetupPage extends ConsumerWidget {
   const SetupPage({Key? key}) : super(key: key);
 
   @override
-  SetupPageState createState() => SetupPageState();
-}
-
-class SetupPageState extends ConsumerState<SetupPage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     User user = ref.watch(userProvider);
+
     return Scaffold(
       body: ListView(
         padding: const EdgeInsets.all(16),
@@ -29,46 +25,55 @@ class SetupPageState extends ConsumerState<SetupPage> {
             style: Theme.of(context).textTheme.headline5,
           ),
           DateFormField(
-              label: 'When did you start smoking?',
+              label: 'When did you QUIT smoking?',
               onChanged: (value) {
                 ref.read(userProvider.notifier).updateUser(
                     user.copyWith(quitDate: value.toIso8601String()));
               }),
           TextFormField(
             keyboardType: TextInputType.number,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             decoration: const InputDecoration(
               label: Text('How many years did you smoke?'),
             ),
             onChanged: (value) {
-              ref
-                  .read(userProvider.notifier)
-                  .updateUser(user.copyWith(smokingYears: int.tryParse(value)));
+              ref.read(userProvider.notifier).updateUser(
+                  user.copyWith(smokingYears: int.tryParse(value) ?? 0));
             },
           ),
           TextFormField(
             keyboardType: TextInputType.number,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             decoration: const InputDecoration(
               label: Text('How many cigarettes did you smoke per day?'),
             ),
             onChanged: (value) {
               ref.read(userProvider.notifier).updateUser(
-                  user.copyWith(dailyCigaretteCount: int.tryParse(value)));
+                  user.copyWith(dailyCigaretteCount: int.tryParse(value) ?? 0));
             },
           ),
           TextFormField(
             keyboardType: TextInputType.number,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             decoration: const InputDecoration(
               label: Text('How many cigarettes where in the pack?'),
             ),
             onChanged: (value) {
-              ref.read(userProvider.notifier).updateUser(
-                  user.copyWith(cigaretteAmountInPack: int.tryParse(value)));
+              ref.read(userProvider.notifier).updateUser(user.copyWith(
+                  cigaretteAmountInPack: int.tryParse(value) ?? 0));
             },
           ),
           TextFormField(
-            keyboardType: TextInputType.number,
+            keyboardType: const TextInputType.numberWithOptions(
+              decimal: true,
+              signed: false,
+            ),
+            inputFormatters: [
+              FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}'))
+            ],
             decoration: InputDecoration(
               label: const Text('What is the price of the pack?'),
+              prefix: Text(user.currency ?? '\$'),
               suffixIcon: IconButton(
                   onPressed: () {
                     showCurrencyPicker(
@@ -87,7 +92,7 @@ class SetupPageState extends ConsumerState<SetupPage> {
             ),
             onChanged: (value) {
               ref.read(userProvider.notifier).updateUser(
-                  user.copyWith(cigarettePrice: int.tryParse(value)));
+                  user.copyWith(cigarettePrice: int.tryParse(value) ?? 0));
             },
           ),
         ],
