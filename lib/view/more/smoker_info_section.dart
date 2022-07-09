@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/utils/validator.dart';
 import '../../core/widget/ui/form/date_form_field.dart';
 import '../../model/user/user.dart';
 import '../../model/user_view_model.dart';
@@ -22,6 +23,7 @@ class SmokerInfoSection extends ConsumerWidget {
         children: [
           DateFormField(
               label: 'When did you quit smoking?',
+              // validator: validate,
               onChanged: (value) {
                 print(value.toIso8601String());
                 ref.read(userProvider.notifier).updateUser(

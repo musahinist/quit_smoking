@@ -10,12 +10,13 @@ class DateFormField extends StatefulWidget {
     this.initialValue,
     required this.label,
     required this.onChanged,
+    this.validator,
   }) : super(key: key);
 
   final DateTime? initialValue;
   final String label;
   final ValueSetter<DateTime> onChanged;
-
+  final String? Function(String?)? validator;
   @override
   State<DateFormField> createState() => _DateFormFieldState();
 }
@@ -46,6 +47,8 @@ class _DateFormFieldState extends State<DateFormField> {
       keyboardType: TextInputType.datetime,
       textInputAction: TextInputAction.next,
       inputFormatters: [DateInputFormatter()],
+      validator: widget.validator,
+      readOnly: true,
       decoration: InputDecoration(
         label: Text(widget.label),
         hintText: "MM/dd/yyyy HH:mm",

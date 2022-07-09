@@ -6,15 +6,26 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import '../../core/utils/currency.dart';
+import '../../core/utils/validator.dart';
 import '../../core/widget/ui/form/date_form_field.dart';
 import '../../model/user/user.dart';
 import '../../model/user_view_model.dart';
 
+//final _formKey = GlobalKey<FormState>();
+
 class SetupPage extends ConsumerWidget {
   const SetupPage({Key? key}) : super(key: key);
-  String getCurrency() {
-    var format = NumberFormat.simpleCurrency(locale: Platform.localeName);
-    return format.currencySymbol;
+  bool validate(User user) {
+    bool valid = user.smokingYears != null &&
+        user.smokingYears != 0 &&
+        user.dailyCigaretteCount != null &&
+        user.dailyCigaretteCount != 0 &&
+        user.cigaretteAmountInPack != null &&
+        user.cigaretteAmountInPack != 0 &&
+        user.cigarettePrice != null &&
+        user.cigarettePrice != 0;
+    return valid;
   }
 
   @override
@@ -26,6 +37,7 @@ class SetupPage extends ConsumerWidget {
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Form(
+            // key: _formKey,
             child: Column(
               children: [
                 Text(
@@ -36,6 +48,8 @@ class SetupPage extends ConsumerWidget {
                 const SizedBox(height: 12),
                 DateFormField(
                     label: 'When did you QUIT smoking?',
+
+                    /// validator: validate,
                     onChanged: (value) {
                       ref.read(userProvider.notifier).updateUser(
                           user.copyWith(quitDate: value.toIso8601String()));
@@ -44,11 +58,13 @@ class SetupPage extends ConsumerWidget {
                 TextFormField(
                   keyboardType: TextInputType.number,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  // validator: validate,
                   decoration: const InputDecoration(
                     label: Text('How many years did you smoke?'),
                     border: OutlineInputBorder(),
                   ),
                   onChanged: (value) {
+                    print(value);
                     ref.read(userProvider.notifier).updateUser(
                         user.copyWith(smokingYears: int.tryParse(value) ?? 0));
                   },
@@ -57,6 +73,7 @@ class SetupPage extends ConsumerWidget {
                 TextFormField(
                   keyboardType: TextInputType.number,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  // validator: validate,
                   decoration: const InputDecoration(
                     label: Text('How many cigarettes did you smoke per day?'),
                     border: OutlineInputBorder(),
@@ -70,6 +87,7 @@ class SetupPage extends ConsumerWidget {
                 TextFormField(
                   keyboardType: TextInputType.number,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  // validator: validate,
                   decoration: const InputDecoration(
                     label: Text('How many cigarettes where in the pack?'),
                     border: OutlineInputBorder(),
@@ -88,6 +106,7 @@ class SetupPage extends ConsumerWidget {
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}'))
                   ],
+                  // validator: validate,
                   decoration: InputDecoration(
                     label: const Text('What is the price of the pack?'),
                     prefix: Text(user.currency ?? getCurrency()),
@@ -118,10 +137,12 @@ class SetupPage extends ConsumerWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.check),
-        onPressed: () {},
-      ),
+      floatingActionButton: validate(user)
+          ? FloatingActionButton(
+              child: const Icon(Icons.check),
+              onPressed: () {},
+            )
+          : null,
     );
   }
 }

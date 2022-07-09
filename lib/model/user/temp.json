@@ -7,13 +7,13 @@
     "first_setup":true,
     "quit_date": "2022-06-21T18:00:00.000",
     "daily_cigarette_count": 20,
-    "cigarette_price_in_pack": 25,
+    "cigarette_price_in_pack": 25.4,
     "currency": "TRY",
     "cigarette_amount_in_pack": 20,
     "smoking_years": 25,
     "terms_and_policy_ok": false,
     "challenge_duration_inhours": 240,
-    "save_up_for_smth":300,
+    "save_up_for_smth":300.12,
     "preferences": {
         "language": "",
         "theme": "",
@@ -25,7 +25,7 @@
         {
             "title": "sdfg",
             "note": "",
-            "price": 120,
+            "price": 120.12,
             "link": "",
             "purchased": false
         }
