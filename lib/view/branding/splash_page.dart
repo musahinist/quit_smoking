@@ -5,6 +5,10 @@ class SplashPage extends StatelessWidget {
   static const String routeName = '/splash';
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
   }
 }
