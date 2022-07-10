@@ -1,13 +1,15 @@
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 
-class Prefereces {
+@immutable
+class Preferences {
   final String? language;
   final String? theme;
   final bool? notifications;
   final bool? sounds;
   final bool? vibration;
 
-  const Prefereces({
+  const Preferences({
     this.language,
     this.theme,
     this.notifications,
@@ -17,10 +19,10 @@ class Prefereces {
 
   @override
   String toString() {
-    return 'Prefereces(language: $language, theme: $theme, notifications: $notifications, sounds: $sounds, vibration: $vibration)';
+    return 'Preferences(language: $language, theme: $theme, notifications: $notifications, sounds: $sounds, vibration: $vibration)';
   }
 
-  factory Prefereces.fromJson(Map<String, dynamic> json) => Prefereces(
+  factory Preferences.fromJson(Map<String, dynamic> json) => Preferences(
         language: json['language'] as String?,
         theme: json['theme'] as String?,
         notifications: json['notifications'] as bool?,
@@ -36,14 +38,14 @@ class Prefereces {
         'vibration': vibration,
       };
 
-  Prefereces copyWith({
+  Preferences copyWith({
     String? language,
     String? theme,
     bool? notifications,
     bool? sounds,
     bool? vibration,
   }) {
-    return Prefereces(
+    return Preferences(
       language: language ?? this.language,
       theme: theme ?? this.theme,
       notifications: notifications ?? this.notifications,
@@ -55,7 +57,7 @@ class Prefereces {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    if (other is! Prefereces) return false;
+    if (other is! Preferences) return false;
     final mapEquals = const DeepCollectionEquality().equals;
     return mapEquals(other.toJson(), toJson());
   }

@@ -1,15 +1,16 @@
-import 'daily_mood.dart';
-import 'prefereces.dart';
-import 'save_up.dart';
-import 'user.dart';
+import 'user/daily_mood.dart';
 
-User mockUser = const User(
+import 'user/preferences.dart';
+import 'user/save_up.dart';
+import 'user/user.dart';
+
+User mockUser = User(
   name: 'mshn',
   email: 'sahinmusa@gmail.com',
   // profilePhoto: '',
   bio: 'about me my bio',
   location: 'Turkey',
-  quitDate: '2022-06-21T18:00:00.000',
+  quitDate: DateTime.tryParse('2022-06-21T18:00:00.000'),
   // dailyCigaretteCount: 20,
   // cigarettePrice: 30,
   // currency: 'TRY',
@@ -18,7 +19,7 @@ User mockUser = const User(
   termsAndPolicyOk: false,
   challengeDurationInhours: 24 * 21,
   saveUpForSmth: 300,
-  prefereces: Prefereces(
+  preferences: Preferences(
     language: 'tr',
     notifications: true,
     sounds: true,

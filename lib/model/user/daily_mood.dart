@@ -1,5 +1,7 @@
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 
+@immutable
 class DailyMood {
   final String? date;
   final int? cravings;

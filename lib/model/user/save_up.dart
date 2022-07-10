@@ -1,5 +1,7 @@
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 
+@immutable
 class SaveUp {
   final String? title;
   final String? note;
@@ -23,7 +25,7 @@ class SaveUp {
   factory SaveUp.fromJson(Map<String, dynamic> json) => SaveUp(
         title: json['title'] as String?,
         note: json['note'] as String?,
-        price: json['price'] as double?,
+        price: (json['price'] as num?)?.toDouble(),
         link: json['link'] as String?,
         purchased: json['purchased'] as bool?,
       );

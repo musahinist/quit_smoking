@@ -37,6 +37,12 @@ class Show {
     FocusScope.of(context).unfocus();
     await showModalBottomSheet(
       context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
+        ),
+      ),
       builder: (context) => SizedBox(
         height: 280,
         child: CupertinoDatePicker(

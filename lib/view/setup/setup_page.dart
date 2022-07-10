@@ -16,6 +16,7 @@ import '../../model/user_view_model.dart';
 
 class SetupPage extends ConsumerWidget {
   const SetupPage({Key? key}) : super(key: key);
+  static const String routeName = '/setup';
   bool validate(User user) {
     bool valid = user.smokingYears != null &&
         user.smokingYears != 0 &&
@@ -23,8 +24,8 @@ class SetupPage extends ConsumerWidget {
         user.dailyCigaretteCount != 0 &&
         user.cigaretteAmountInPack != null &&
         user.cigaretteAmountInPack != 0 &&
-        user.cigarettePrice != null &&
-        user.cigarettePrice != 0;
+        user.cigarettePriceInPack != null &&
+        user.cigarettePriceInPack != 0;
     return valid;
   }
 
@@ -51,8 +52,9 @@ class SetupPage extends ConsumerWidget {
 
                     /// validator: validate,
                     onChanged: (value) {
-                      ref.read(userProvider.notifier).updateUser(
-                          user.copyWith(quitDate: value.toIso8601String()));
+                      ref
+                          .read(userProvider.notifier)
+                          .updateUser(user.copyWith(quitDate: value));
                     }),
                 const SizedBox(height: 12),
                 TextFormField(
@@ -116,10 +118,17 @@ class SetupPage extends ConsumerWidget {
                           showCurrencyPicker(
                             context: context,
                             showFlag: false,
+                            theme: CurrencyPickerThemeData(
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(16),
+                                  topRight: Radius.circular(16),
+                                ),
+                              ),
+                            ),
                             showCurrencyName: true,
                             showCurrencyCode: true,
                             onSelect: (Currency currency) {
-                              print('Select currency: ${currency.symbol}');
                               ref.read(userProvider.notifier).updateUser(
                                   user.copyWith(currency: currency.symbol));
                             },
@@ -129,7 +138,7 @@ class SetupPage extends ConsumerWidget {
                   ),
                   onChanged: (value) {
                     ref.read(userProvider.notifier).updateUser(user.copyWith(
-                        cigarettePrice: int.tryParse(value) ?? 0));
+                        cigarettePriceInPack: double.tryParse(value) ?? 0));
                   },
                 ),
               ],

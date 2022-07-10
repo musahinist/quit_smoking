@@ -4,11 +4,11 @@ import 'package:riverpod/riverpod.dart';
 
 final timerProviderSec = StateNotifierProvider<StopWatch, Duration>((ref) {
   return StopWatch(const Duration(seconds: 1),
-      DateTime.tryParse(ref.watch(userProvider).quitDate!) ?? DateTime.now());
+      ref.watch(userProvider).quitDate ?? DateTime.now());
 });
 final timerProviderMin = StateNotifierProvider<StopWatch, Duration>((ref) {
   return StopWatch(const Duration(minutes: 1),
-      DateTime.tryParse(ref.watch(userProvider).quitDate!) ?? DateTime.now());
+      ref.watch(userProvider).quitDate ?? DateTime.now());
 });
 
 class StopWatch extends StateNotifier<Duration> {

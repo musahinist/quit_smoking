@@ -26,8 +26,9 @@ class SmokerInfoSection extends ConsumerWidget {
               // validator: validate,
               onChanged: (value) {
                 print(value.toIso8601String());
-                ref.read(userProvider.notifier).updateUser(
-                    user.copyWith(quitDate: value.toIso8601String()));
+                ref
+                    .read(userProvider.notifier)
+                    .updateUser(user.copyWith(quitDate: value));
               }),
           // TextFormField(
           //   initialValue: "20",

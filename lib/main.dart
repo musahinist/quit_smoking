@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quit_smoking/view/branding/splash_page.dart';
 import 'view/home/home_page.dart';
 import 'view/setup/setup_page.dart';
 
@@ -27,7 +28,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
       ),
-      home: SetupPage(),
+      initialRoute: SetupPage.routeName,
+      routes: Pages.routes,
     );
   }
+}
+
+class Pages {
+  static final Map<String, Widget Function(BuildContext)> routes = {
+    SplashPage.routeName: (context) => const SplashPage(),
+    SetupPage.routeName: (context) => const SetupPage(),
+    HomePage.routeName: (context) => const HomePage(),
+  };
 }
