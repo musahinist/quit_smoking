@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,7 +12,10 @@ import 'view/setup/setup_page.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(ProviderScope(
+    // observers: [ProviderLogger()],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends ConsumerWidget {
@@ -19,7 +24,8 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     User user = ref.watch(userProvider);
-    ref.read(userProvider.notifier).authStateChanged();
+    // ref.read(userProvider.notifier).authStateChanged();
+    print(user.firstSetup);
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
@@ -38,4 +44,17 @@ class Pages {
     SetupPage.routeName: (context) => const SetupPage(),
     HomePage.routeName: (context) => const HomePage(),
   };
+}
+
+class ProviderLogger extends ProviderObserver {
+  @override
+  void didUpdateProvider(
+    ProviderBase provider,
+    Object? previousValue,
+    Object? newValue,
+    ProviderContainer container,
+  ) {
+    super.didUpdateProvider(provider, previousValue, newValue, container);
+    log('[${provider.name ?? provider.runtimeType}] value: $newValue');
+  }
 }
