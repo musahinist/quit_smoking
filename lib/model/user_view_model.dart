@@ -4,7 +4,7 @@ import 'mock_user.dart';
 import 'user/user.dart';
 
 final userProvider = StateNotifierProvider<UserViewModel, User>((ref) {
-  return UserViewModel();
+  return UserViewModel()..authStateChanged();
 });
 
 class UserViewModel extends StateNotifier<User> {
@@ -16,7 +16,7 @@ class UserViewModel extends StateNotifier<User> {
     // 2. update user
     await Future.delayed(Duration(seconds: 3));
     state = state.copyWith(
-      firstSetup: false,
+      firstSetup: true,
     );
   }
 }

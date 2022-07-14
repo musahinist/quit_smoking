@@ -149,7 +149,9 @@ class SetupPage extends ConsumerWidget {
       floatingActionButton: validate(user)
           ? FloatingActionButton(
               child: const Icon(Icons.check),
-              onPressed: () {},
+              onPressed: () {
+                ref.read(userProvider.notifier).authStateChanged();
+              },
             )
           : null,
     );

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:quit_smoking/view/branding/splash_page.dart';
+import 'model/auth_provider.dart';
 import 'model/user/user.dart';
 import 'model/user_view_model.dart';
 import 'view/home/home_page.dart';
@@ -13,7 +14,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(ProviderScope(
-    // observers: [ProviderLogger()],
+    observers: [ProviderLogger()],
     child: const MyApp(),
   ));
 }
@@ -23,16 +24,13 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    User user = ref.watch(userProvider);
-    // ref.read(userProvider.notifier).authStateChanged();
-    print(user.firstSetup);
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
       ),
-      initialRoute: user.firstSetup! ? SetupPage.routeName : HomePage.routeName,
+      initialRoute: SplashPage.routeName,
       routes: Pages.routes,
     );
   }
